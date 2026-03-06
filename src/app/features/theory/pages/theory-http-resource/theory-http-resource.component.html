@@ -1,0 +1,123 @@
+<theory-header chapterName="Http Resource" />
+<section class="card-body">
+	<article class="card">
+		<div class="card-header">
+			<h2>L'API Resource : Gérer les données asynchrones avec les signaux</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Dans les versions récentes d'Angular (depuis Angular 19), la nouvelle fonction <strong><code>rxResource</code></strong> et
+				l'API <strong><code>resource</code></strong> simplifient considérablement la gestion des requêtes HTTP et de l'état
+				asynchrone par rapport à l'utilisation classique de <code>HttpClient</code> et des observables seuls.
+			</p>
+			<p>
+				Cette API s'intègre parfaitement avec les <strong>Signals</strong> et fournit nativement l'état de la requête sans avoir
+				besoin de gérer manuellement des variables comme <code>isLoading</code>, <code>error</code>, ou de devoir se désabonner
+				(unsubscribe).
+			</p>
+			<hr />
+			<p>Une ressource expose notamment les signaux suivants :</p>
+			<ul>
+				<li><code>value()</code> : Les données récupérées par la requête (pouvant être <code>undefined</code> si non résolues).</li>
+				<li><code>isLoading()</code> : Un booléen indiquant si la requête est en cours de chargement.</li>
+				<li><code>error()</code> : L'erreur éventuelle retournée par la requête.</li>
+				<li><code>hasValue()</code> : True si une valeur a été chargée avec succès.</li>
+				<li>
+					<code>status()</code> : Le statut métier plus détaillé de la ressource (Idle, Loading, Error, Resolved, Reloading,
+					etc.).
+				</li>
+			</ul>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Utilisation avec rxResource et HttpClient</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Pour utiliser la puissance des ressources avec vos services <code>HttpClient</code> (qui retournent des observables),
+				Angular propose <strong><code>rxResource</code></strong> situé dans <code>&#64;angular/core/rxjs-interop</code>. Cette
+				fonction permet d'appeler <code>httpClient.get()</code> tout en bénéficiant de la nouvelle API de signal.
+			</p>
+
+			<h3>Service</h3>
+			<textarea highlight-js [options]="{}" [lang]="'typescript'">
+import { inject, Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { rxResource } from "@angular/core/rxjs-interop";
+import { PokemonModel } from "@app/features/demo/pages/demo-http-client/models/pokemon.model";
+
+@Injectable({
+  providedIn: "root",
+})
+export class PokemonResourceService {
+  private readonly _httpClient = inject(HttpClient);
+
+  // Utilisation de rxResource à la place d'une simple méthode retournant un observable
+  pokemonResource = rxResource({
+    // 'request' : Une fonction ou un Signal qui réévalue les paramètres. 
+    // Quand ce signal change, la requête HTTP sera relancée automatiquement !
+    request: () => 162, // Ici un ID fixe, mais ça pourrait être un this.idSignal()
+    
+    // 'loader' : La méthode qui fait l'appel HTTP avec les paramètres obtenus dans 'request'
+    loader: (params) => this._httpClient.get<PokemonModel>(`https://pokeapi.co/api/v2/pokemon/${params.request}`)
+  });
+}
+			</textarea
+			>
+			<ul>
+				<li>
+					<code>request</code> : Récupère ou suit des paramètres sous forme réactive. Lorsque ces paramètres changent,
+					<code>rxResource</code> annule la requête précédente (s'il y en a une en cours) et en lance une nouvelle.
+				</li>
+				<li>
+					<code>loader</code> : Effectue la requête (ici via <code>HttpClient</code>) en recevant l'objet <code>params</code>, qui
+					contient notamment la propriété <code>request</code> (la valeur renvoyée par la fonction request précédente).
+				</li>
+			</ul>
+
+			<h3>Composant (Template)</h3>
+			<p>
+				Dans le template, plus besoin d'utiliser le pipe <code>async</code>, de souscrire manuellement ni de gérer des variables
+				booléennes de chargement : on lit directement l'état de notre ressource !
+			</p>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+&#64;if (pokemonService.pokemonResource.isLoading()) {
+  <p>Chargement du Pokemon en cours...</p>
+} &#64;else if (pokemonService.pokemonResource.error()) {
+  <p class="color-red">Une erreur est survenue lors du chargement des données !</p>
+} &#64;else if (pokemonService.pokemonResource.value(); as pokemon) {
+  <div>
+    <h3>&#123;&#123; pokemon.name &#125;&#125;</h3>
+    <!-- Affichage des données du pokemon -->
+  </div>
+}
+			</textarea
+			>
+			>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Rechargement forcé (Reload)</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Il est très facile de forcer la ressource à refaire un appel réseau sans pour autant changer les paramètres de la requête.
+				La ressource expose une méthode <code>reload()</code> à cet effet.
+			</p>
+			<textarea highlight-js [options]="{}" [lang]="'typescript'">
+refreshData() {
+  this.pokemonService.pokemonResource.reload();
+}
+			</textarea
+			>
+			<p>
+				En appelant <code>reload()</code>, la ressource se met à jour, fait repasser l'état de chargement à <code>true</code> et
+				ré-exécute le <code>loader</code> HTTP sur le réseau.
+			</p>
+		</div>
+	</article>
+</section>

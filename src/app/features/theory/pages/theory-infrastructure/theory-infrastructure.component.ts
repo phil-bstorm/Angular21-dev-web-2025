@@ -1,28 +1,27 @@
 import {Component, signal} from "@angular/core";
-import {TheoryHeaderComponent} from "../../components/layout/theory-header/theory-header.component";
-import {FolderStructureModel} from "@app/shared/components/folder-structure/models/folder-structure.model";
+import {FolderStructureComponent} from "@shared/components/folder-structure/folder-structure.component";
+import {FolderStructureModel} from "@shared/components/folder-structure/models/folder-structure.model";
 import {
 	deselectAll,
 	findWithPath,
-} from "@app/shared/components/folder-structure/utils/folder-structure.utils";
-import {FolderStructureComponent} from "@app/shared/components/folder-structure/folder-structure.component";
-import {SrcDescriptionComponent} from "./components/src-description/src-description.component";
-import {CoreDescriptionComponent} from "./components/core-description/core-description.component";
-import {CoreModelsDescriptionComponent} from "./components/core-models-description/core-models-description.component";
-import {CoreModelsUserDescriptionComponent} from "./components/core-models-user-description/core-models-user-description.component";
-import {CoreConstantsDescriptionComponent} from "./components/core-constants-description/core-constants-description.component";
-import {CoreConstantsApiDescriptionComponent} from "./components/core-constants-api-description/core-constants-api-description.component";
-import {CoreInterceptorsDescriptionComponent} from "./components/core-interceptors-description/core-interceptors-description.component";
-import {CoreInterceptorsJwtDescriptionComponent} from "./components/core-interceptors-jwt-description/core-interceptors-jwt-description.component";
-import {CoreGuardsDescriptionComponent} from "./components/core-guards-description/core-guards-description.component";
-import {CoreGuardsConnectedDescriptionComponent} from "./components/core-guards-connected-description/core-guards-connected-description.component";
-import {CoreServicesDescriptionComponent} from "./components/core-services-description/core-services-description.component";
-import {CoreServicesAuthDescriptionComponent} from "./components/core-services-auth-description/core-services-auth-description.component";
+} from "@shared/components/folder-structure/utils/folder-structure.utils";
+import {SrcDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/src-description/src-description.component";
+import {CoreDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-description/core-description.component";
+import {CoreModelsDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-models-description/core-models-description.component";
+import {CoreModelsUserDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-models-user-description/core-models-user-description.component";
+import {CoreConstantsDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-constants-description/core-constants-description.component";
+import {CoreConstantsApiDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-constants-api-description/core-constants-api-description.component";
+import {CoreInterceptorsDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-interceptors-description/core-interceptors-description.component";
+import {CoreInterceptorsJwtDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-interceptors-jwt-description/core-interceptors-jwt-description.component";
+import {CoreGuardsDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-guards-description/core-guards-description.component";
+import {CoreGuardsConnectedDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-guards-connected-description/core-guards-connected-description.component";
+import {CoreServicesDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-services-description/core-services-description.component";
+import {CoreServicesAuthDescriptionComponent} from "@app/features/theory/pages/theory-infrastructure/components/core-services-auth-description/core-services-auth-description.component";
+import {TheoryHeaderComponent} from "@app/features/theory/components/layout/theory-header/theory-header.component";
 
 @Component({
 	selector: "theory-infrastructure",
 	imports: [
-		TheoryHeaderComponent,
 		FolderStructureComponent,
 		SrcDescriptionComponent,
 		CoreDescriptionComponent,
@@ -36,6 +35,7 @@ import {CoreServicesAuthDescriptionComponent} from "./components/core-services-a
 		CoreGuardsConnectedDescriptionComponent,
 		CoreServicesDescriptionComponent,
 		CoreServicesAuthDescriptionComponent,
+		TheoryHeaderComponent,
 	],
 	templateUrl: "./theory-infrastructure.component.html",
 	styleUrl: "./theory-infrastructure.component.scss",
@@ -53,13 +53,16 @@ export class TheoryInfrastructureComponent {
 				children: [
 					{
 						name: "core",
-						interaction: () => this.onElementOfFolderClick("src/app/core"),
+						interaction: () =>
+							this.onElementOfFolderClick("src/app/core"),
 						files: [],
 						children: [
 							{
 								name: "models",
 								interaction: () =>
-									this.onElementOfFolderClick("src/app/core/models"),
+									this.onElementOfFolderClick(
+										"src/app/core/models",
+									),
 								files: [
 									{
 										name: "user.model.ts",
@@ -76,7 +79,9 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "constants",
 								interaction: () =>
-									this.onElementOfFolderClick("src/app/core/constants"),
+									this.onElementOfFolderClick(
+										"src/app/core/constants",
+									),
 								files: [
 									{
 										name: "api.constants.ts",
@@ -90,7 +95,9 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "interceptors",
 								interaction: () =>
-									this.onElementOfFolderClick("src/app/core/interceptors"),
+									this.onElementOfFolderClick(
+										"src/app/core/interceptors",
+									),
 								files: [
 									{
 										name: "jwt.interceptor.ts",
@@ -104,7 +111,9 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "guards",
 								interaction: () =>
-									this.onElementOfFolderClick("src/app/core/guards"),
+									this.onElementOfFolderClick(
+										"src/app/core/guards",
+									),
 								files: [
 									{
 										name: "connected.guard.ts",
@@ -177,11 +186,13 @@ export class TheoryInfrastructureComponent {
 													},
 													{
 														name: "auth-login.component.html",
-														bootstrapIcon: "bi-filetype-html",
+														bootstrapIcon:
+															"bi-filetype-html",
 													},
 													{
 														name: "auth-login.component.scss",
-														bootstrapIcon: "bi-filetype-scss",
+														bootstrapIcon:
+															"bi-filetype-scss",
 													},
 												],
 											},
@@ -193,11 +204,13 @@ export class TheoryInfrastructureComponent {
 													},
 													{
 														name: "auth-register.component.html",
-														bootstrapIcon: "bi-filetype-html",
+														bootstrapIcon:
+															"bi-filetype-html",
 													},
 													{
 														name: "auth-register.component.scss",
-														bootstrapIcon: "bi-filetype-scss",
+														bootstrapIcon:
+															"bi-filetype-scss",
 													},
 												],
 											},

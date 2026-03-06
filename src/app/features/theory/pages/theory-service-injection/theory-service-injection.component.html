@@ -1,0 +1,264 @@
+<theory-header chapterName="Service et Injection de dépendance" />
+<section class="card-body">
+	<article class="card">
+		<div class="card-header">
+			<h2>Qu'est-ce qu'un Service en Angular ?</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Un <strong>service</strong> en Angular est une classe qui contient des méthodes réutilisables que plusieurs composants
+				peuvent appeler. Un service permet de <strong>centraliser la logique métier</strong> (tâches telles que les appels HTTP, la
+				gestion de données, etc.) en dehors des composants pour respecter le principe de
+				<strong>séparation des responsabilité</strong>.
+			</p>
+			<p>
+				<strong>Par exemple</strong>: au lieu de répéter dans plusieurs composants le même appel à une API, on peut créer un
+				<code>UserService</code> qui s’en charge. Chaque composant peut alors utiliser ce service pour accéder ou modifier les
+				données utilisateurs.
+			</p>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Pourquoi utiliser des Services ?</h2>
+		</div>
+		<div class="card-body">
+			<p>Les services offrent de nombreux avantages :</p>
+			<ul>
+				<li>
+					<strong>Réutilisation</strong> du code : Un service permet d'éviter la duplication du code dans plusieurs composants.
+				</li>
+				<li>
+					<strong>Organisation</strong> : La logique métier est séparée des composants, facilitant ainsi la maintenance et la
+					lisibilité du code.
+				</li>
+				<li>
+					<strong>Centralisation des données</strong> : Un service peut contenir et gérer des informations partagées par plusieurs
+					composants.
+				</li>
+			</ul>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>L'injection de dépendance</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				L'<strong>Injection de Dépendances</strong> est un <strong>design pattern</strong> qui consiste à fournir une dépendance
+				(comme un service) à une classe plutôt que de la laisser créer elle-même cette dépendance.
+			</p>
+			<p>
+				Angular a un <strong>système intégré d'injection de dépendances</strong>, qui permet de fournir automatiquement les services
+				dont les composants ou d'autres services ont besoin.
+			</p>
+			<p>Par exemple, au lieu qu'un composant crée une instance d'un service lui-même, Angular l'injecte automatiquement :</p>
+			<ul>
+				<li>
+					<p>Via constructeur:</p>
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+constructor(private _userService: UserService) {}
+					</textarea
+					>
+				</li>
+				<li>
+					<p>Avec inject <i>(sans oublié l'import de celui-ci)</i></p>
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+private readonly _userService = inject(UserService);
+					</textarea
+					>
+				</li>
+			</ul>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header"><h2>Créer un service</h2></div>
+		<div class="card-body">
+			<h3>Création du service</h3>
+			<p>
+				Pour créer un service, Angular CLI offre une commande simple :<br />
+				<code>ng generate service nom-du-service </code>
+			</p>
+			<p>
+				Cela crée une classe TypeScript marquée par le décorateur <code>&#64;Injectable()</code>. Ce décorateur informe Angular que
+				cette classe peut être injectée dans d'autres classes.
+			</p>
+			<textarea highlight-js [options]="{}" [lang]="'ts'">
+import {Injectable, signal} from "@angular/core";
+
+@Injectable({
+  providedIn: "root",
+})
+export class UserService {
+  constructor() {}
+
+  isConnected = signal(false);
+}
+			</textarea
+			>
+
+			<h3>Analyse</h3>
+			<ul>
+				<li><code>&#64;Injectable()</code> : Indique qu'Angular peut injecter ce service dans d'autres classes.</li>
+				<li>
+					<code>providedIn: 'root'</code> : Indique qu'Angular doit créer une instance unique de ce service pour toute
+					l'application. Cela signifie que le service est disponible dans toute l'application sans avoir besoin de l'ajouter
+					explicitement. (comme on le verra plus tard) <br />
+					<i>🔎 avoir la même instance pour toute l'application s'appel aussi un <code>singleton</code></i>
+				</li>
+				<li>
+					<code>constructor()</code> : Le constructeur est vide, car il n'y a pas de logique d'initialisation nécessaire pour ce
+					service.
+				</li>
+				<li>
+					<code>isConnected</code> : C'est une propriété de type <code>signal</code>, qui est initialisée à <code>false</code>.
+					Cette propriété peut être utilisée pour suivre l'état de connexion d'un utilisateur. <br />
+					<i>🔎 un signal est une variable améliorée, c'est expliqué un peu plus bas!</i>
+				</li>
+			</ul>
+
+			<h3>Injecter un service dans un composant</h3>
+			<p>Comme vu précédement, il y a 2 manières de faire de l'injection de dépendance:</p>
+			<ul>
+				<li>
+					<p>Via constructeur:</p>
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+constructor(private _userService: UserService) {}
+					</textarea
+					>
+					<ul>
+						<li><code>private</code>, car on ne souhaite pas que puisse être utiliser en dehors de la classe</li>
+						<li>
+							<code>_</code>, la variable commence avec un <code>_</code>, car c'est une convention de commencer les variables
+							privées avec un <code>_</code>
+						</li>
+						<li>
+							<code>: UserService</code>, on précise le type de la variable, ici <code>UserService</code>
+							pour indiquer quel service on souhaite injecter
+						</li>
+					</ul>
+				</li>
+				<li>
+					<p>Depuis la version 14 d'Angular, avec inject <i>(sans oublié l'import de celui-ci)</i></p>
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+private readonly _userService = inject(UserService);
+					</textarea
+					>
+					<ul>
+						<li><code>private</code>, car on ne souhaite pas que puisse être utiliser en dehors de la classe</li>
+						<li><code>readonly</code> pour indiquer que la variable ne peut pas être modifiée après son initialisation</li>
+						<li>
+							<code>_</code>, la variable commence avec un <code>_</code>, car c'est une convention de commencer les variables
+							privées avec un <code>_</code>
+						</li>
+						<li><code>inject</code> permet d'injecter le service sans passer par le constructeur</li>
+						<li>
+							<code>UserService</code>, on précise le type de la variable, ici <code>UserService</code>
+							pour indiquer quel service on souhaite injecter
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Introduction <code>Signal</code></h2>
+		</div>
+		<div>
+			<div class="card-body">
+				<p>
+					Un <strong>signal</strong> est une variable améliorée qui permet de suivre les changements d'état. Il est utilisé pour
+					réagir aux modifications de données et mettre à jour l'interface utilisateur en conséquence.
+				</p>
+				<p>
+					Un signal est créé avec la fonction <code>signal()</code>, et il peut être utilisé pour stocker des valeurs dynamiques.
+					Lorsqu'un signal change, Angular met automatiquement à jour les composants qui l'utilisent.
+				</p>
+				<p>
+					Par exemple, si vous avez un signal <code>isConnected</code>, vous pouvez l'utiliser pour afficher ou masquer des
+					boutons en fonction de l'état de connexion de l'utilisateur.
+				</p>
+				<p>
+					Pour placer une valeur lors de son instanciation:
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+isConnected = signal(false);
+				</textarea
+					>
+				</p>
+
+				<p>
+					Pour modifier sa valeur:
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+isConnected.set(true);
+				</textarea
+					>
+				</p>
+
+				<p>
+					Pour utiliser sa valeur, on va rajotuer des parenthèses à notre signal:
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+if( isConnected() ){
+  console.log("L'utilisateur est connecté!"
+}
+				</textarea
+					>
+				</p>
+
+				<i>🔎 il est possible de faire encore bien plus de chose avec des signals mais on verra ça plus tard!</i>
+			</div>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Les différents types d'injection</h2>
+		</div>
+		<div class="card-body">
+			<p>Il existe 3 types d'injections:</p>
+			<ul>
+				<li>
+					<strong>Singleton</strong>: <i>Tout le monde partage la même instance</i>, pour créer un service singleton, on va
+					rajouter <code>providedIn: "root"</code> dans le décorateur <code>&#64;Injectable()</code>.
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+@Injectable({
+  providedIn: "root",
+})
+				</textarea
+					>
+				</li>
+				<li>
+					<strong>Composant</strong>: <i>Chaque composant a sa propre instance</i>, pour créer un service de composant, on va le
+					rajouter dans les <code>prodviders</code> du composant.
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+@Component({
+  selector: 'hero-list',
+  template: '...',
+  providers: [HeroService]
+})
+					</textarea
+					>
+				</li>
+				<li>
+					<strong>Route</strong>: <i>Chaque route a sa propre instance</i>, pour créer un service de route, on va le rajouter dans
+					les <code>prodviders</code> de la route.
+					<textarea highlight-js [options]="{}" [lang]="'ts'">
+{
+  path: "/book",
+  providers: [BookService]
+  loadComponent: () =>
+    import(
+    "@app/features/book/pages/book-index/book-index.component"
+    ).then(c => c.BookIndexComponent),
+},
+					</textarea
+					>
+				</li>
+			</ul>
+		</div>
+	</article>
+</section>

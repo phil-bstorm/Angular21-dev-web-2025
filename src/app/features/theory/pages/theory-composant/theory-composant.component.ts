@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {HighlightJsDirective} from "ngx-highlight-js";
-import {TheoryHeaderComponent} from "../../components/layout/theory-header/theory-header.component";
+import {TheoryHeaderComponent} from "@app/features/theory/components/layout/theory-header/theory-header.component";
 
 @Component({
 	selector: "theory-composant",
@@ -9,5 +9,6 @@ import {TheoryHeaderComponent} from "../../components/layout/theory-header/theor
 	styleUrl: "./theory-composant.component.scss",
 })
 export class TheoryComposantComponent {
-	imageUrlAppComponentFiles = "assets/theory/composant/app-component-files.png";
+	imageUrlAppComponentFiles =
+		"assets/theory/composant/app-component-files.png";
 }

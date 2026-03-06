@@ -1,0 +1,61 @@
+<exercise-header chapterName="Navigation" />
+
+<section class="card-body">
+	<p>Utilise tout ce que tu as appris dans le chapitre du routing et de la navigation pour créer un mini labyrinthe!</p>
+	<article class="card">
+		<div class="card-header">
+			<h2>Objectif</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Pratiquer la création de module, la création de composant, la mise en place du routing et l'utilisation du
+				<code>routerLink</code>.
+			</p>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Mini labyrinthe</h2>
+		</div>
+		<div class="card-body">
+			<p style="color: red">
+				<strong
+					>⚠️ ATTENTION A BIEN TRAVAILLER DANS LE DOSSIER:
+					<code>src/app/features/exercise/pages/exercise-base-routing-navigation/</code></strong
+				>
+			</p>
+			<p>Créer un mini labyrinthe avec 4 étages:</p>
+			<ul>
+				<li>Étage 1</li>
+				<li>Étage 2</li>
+				<li>Victoire</li>
+				<li>Piège</li>
+			</ul>
+			<p>
+				L'idée est que l'utilisateur commence le jeu à l'URL
+				<a routerLink="/exercise/{{ currentIndex() }}/labyrinthe">http://localhost:4200/exercise/{{ currentIndex() }}/labyrinthe</a>
+				et vois un petit text de bienvenue.<br />
+				Ensuite, il doit cliquer sur un bouton pour passer à l'étage 1. À chaque étage, il doit cliquer sur un lien pour passer à
+				l'étage suivant.<br />
+				Illustration:
+				<img [src]="imgUrlLabyrinthe" alt="Labyrinthe" class="img-fluid" />
+			</p>
+			<h3>Indices:</h3>
+			<ol>
+				<li>
+					Structure de dossier
+					<spoil>
+						<img [src]="imgUrlFolderStructure" alt="Folder structure" />
+					</spoil>
+				</li>
+				<li>
+					Structure complete
+					<spoil>
+						<img [src]="imgUrlCompleteStructure" alt="Complete structure" />
+					</spoil>
+				</li>
+			</ol>
+		</div>
+	</article>
+</section>

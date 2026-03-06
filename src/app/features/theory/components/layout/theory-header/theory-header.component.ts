@@ -1,6 +1,6 @@
-import {Component, input} from "@angular/core";
-import {ChapterNavigationComponent} from "@app/shared/components/chapter-navigation/chapter-navigation.component";
-import {GoTopComponent} from "@app/shared/components/go-top/go-top.component";
+import {Component, input, signal} from "@angular/core";
+import {ChapterNavigationComponent} from "@shared/components/chapter-navigation/chapter-navigation.component";
+import {GoTopComponent} from "@shared/components/go-top/go-top.component";
 
 @Component({
 	selector: "theory-header",

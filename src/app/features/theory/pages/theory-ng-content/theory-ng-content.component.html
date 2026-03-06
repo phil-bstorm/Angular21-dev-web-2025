@@ -1,0 +1,100 @@
+<theory-header chapterName="NgContent" />
+<section class="card-body">
+	<article class="card">
+		<div class="card-header">
+			<h2>Introduction :</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				NgContent est une directive Angular qui permet d'insérer du contenu HTML dans un composant. Elle est utilisée pour créer des
+				composants réutilisables et flexibles en permettant aux développeurs de définir des emplacements dans le modèle du composant
+				où le contenu peut être inséré.
+			</p>
+			<i>🔎 Les résultats des code ci)dessous se trouve dans la partie démo de ce chapitre</i>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>La base</h2>
+		</div>
+		<div class="card-body">
+			<h3>Html de l'enfant (qui va afficher l'HTML transmit par le parent)</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+<p>⬇️Le contenu suivant vient du parent ⬇️</p>
+<ng-content />
+<p>⬆️Le contenu précédent vient du parent ⬆️</p>
+			</textarea
+			>
+			<p>La balise <code>ng-content</code> sera remplacer par les balises transmisent par le parent.</p>
+
+			<h3>Html du parent</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+<demo-enfant-ng-content>
+  <p>Hello world du parent!</p>
+</demo-enfant-ng-content>
+			</textarea
+			>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Plusieurs contents</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Si on souhaite placer plusieurs éléments, il faudra spécifier le sélecteur de chaque élément en utilisant
+				<code>select</code> dans la balise <code>ng-content</code>.
+			</p>
+			<i>🔎Note: tout comme les composants, il y a différents moyen d'utiliser les sélecteurs (par le tag et sélecteur CSS)</i>
+			<h3>Html de l'enfant (qui va afficher l'HTML transmit par le parent)</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+<p>⬇️ Content 1 ⬇️</p>
+<ng-content select=".content1" />
+
+<p>⬇️ Content 2 ⬇️</p>
+<ng-content select=".content2" />
+			</textarea
+			>
+
+			<h3>Html du parent</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+<demo-enfant-multiple-ng-content>
+  <p class="content1">Ceci est le contenu 1</p>
+  <p class="content2">Ceci est le contenu 2</p>
+</demo-enfant-multiple-ng-content>
+			</textarea
+			>
+		</div>
+	</article>
+
+	<article class="card">
+		<div class="card-header">
+			<h2>Contenu par défaut</h2>
+		</div>
+		<div class="card-body">
+			<p>
+				Si on souhaite avoir un contenu par défaut dans le cas où le contenu n'est pas fournis, il suffit de placer le contenu par
+				défaut entre les balises <code>ng-content</code> de l'enfant.
+			</p>
+
+			<h3>Html de l'enfant (qui va afficher l'HTML transmit par le parent)</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+⬇️ Contenu envoyer par le parent? ⬇️
+<ng-content>
+  <p>Ceci est la contenu par défaut qui se trouve dans l'enfant. Car le parent n'a pas fournis de contenu.</p>
+</ng-content>
+			</textarea
+			>
+
+			<h3>Html du parent</h3>
+			<textarea highlight-js [options]="{}" [lang]="'html'">
+<demo-enfant-default-ng-content>
+  <!-- Rien pour afficher le contenu par défaut -->
+</demo-enfant-default-ng-content>
+			</textarea
+			>
+		</div>
+	</article>
+</section>

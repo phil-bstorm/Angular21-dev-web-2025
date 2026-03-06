@@ -1,0 +1,52 @@
+<demo-header chapterName="Formulaire" />
+<div class="card-body">
+	<h2>Formulaire de contact</h2>
+	<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+		<div>
+			<label for="email">Email</label>
+			<input id="email" type="text" formControlName="email" placeholder="Email" />
+			@if (contactForm.get("email")?.touched && !contactForm.get("email")?.valid) {
+				<p class="error">The email is required!</p>
+			}
+		</div>
+		<div>
+			<label for="firstName">FirstName:</label>
+			<input id="firstName" type="text" formControlName="firstName" placeholder="FirstName" />
+			@if (contactForm.get("firstName")?.touched && !contactForm.get("firstName")?.valid) {
+				<p class="error">The firstName is required!</p>
+			}
+		</div>
+		<div>
+			<label for="lastName">LastName:</label>
+			<input id="lastName" type="text" formControlName="lastName" placeholder="LastName" />
+			@if (contactForm.get("lastName")?.touched && !contactForm.get("lastName")?.valid) {
+				<p class="error">The lastName is required!</p>
+			}
+		</div>
+
+		@for (address of addresses.controls; track $index) {
+			<div [formGroup]="address">
+				<div>
+					<label for="street">Street:</label>
+					<input id="street" type="text" formControlName="street" placeholder="Street" />
+					@if (address.get("street")?.touched && !address.get("street")?.valid) {
+						<p class="error">The street is required!</p>
+					}
+				</div>
+				<div>
+					<label for="city">City:</label>
+					<input id="city" type="text" formControlName="city" placeholder="City" />
+					@if (address.get("city")?.touched && !address.get("city")?.valid) {
+						<p class="error">The city is required!</p>
+					}
+				</div>
+				@if ($index > 0) {
+					<button type="button" (click)="removeAddress($index)">Remove</button>
+				}
+			</div>
+		}
+		<button type="button" (click)="addAddress()">Add Address</button>
+		<br />
+		<button type="submit" [disabled]="contactForm.invalid">Send</button>
+	</form>
+</div>

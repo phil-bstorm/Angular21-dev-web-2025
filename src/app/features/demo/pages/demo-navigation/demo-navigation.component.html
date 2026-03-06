@@ -1,0 +1,13 @@
+<demo-header chapterName="Navigation" />
+<div class="card-body">
+	<div>
+		<button (click)="onRedirectToTheory()">Redirection vers la théorie!</button>
+	</div>
+	<hr />
+	<div>
+		<p>Redirection avec paramètre dans la route: {{ valueFromRoute }}</p>
+		<button (click)="onButtonNavigationParam('banana')">Navigation param: Banana</button>
+		<button (click)="onButtonQueryParam()">Query param</button>
+		<button (click)="onButtonNavigationParam('')">default</button>
+	</div>
+</div>
