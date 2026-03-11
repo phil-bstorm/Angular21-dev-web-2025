@@ -8,4 +8,8 @@ export const routes: Routes = [
 				m => m.ExerciseBaseRoutingNavigationComponent,
 			),
 	},
+	{
+		path: "labyrinthe",
+		loadChildren: () => import("./labyrinthe/labyrinthe.route").then(r => r.routes),
+	},
 ];
