@@ -1,23 +1,29 @@
 <theory-header chapterName="Base du routing" />
 <section class="card-body">
 	<p>
-		Le routing est un concept essentiel dans le développement d'applications web modernes. Il permet de naviguer entre les différentes
-		pages de l'application. Angular propose un système de routing très puissant et flexible.
+		Le routing est un concept essentiel dans le développement d'applications web modernes. Il
+		permet de naviguer entre les différentes pages de l'application. Angular propose un système
+		de routing très puissant et flexible.
 	</p>
-	<p>Dans cette section, nous allons voir comment configurer le routing dans une application Angular.</p>
+	<p>
+		Dans cette section, nous allons voir comment configurer le routing dans une application
+		Angular.
+	</p>
 	<div class="card">
 		<div class="card-header">
 			<h2>Qu'est-ce que le routing?</h2>
 		</div>
 		<div class="card-body">
 			<p>
-				Le routing est un mécanisme qui permet de naviguer entre les différentes pages d'une application web. Chaque page est
-				associée à une URL spécifique. Quand l'utilisateur clique sur un lien ou entre une URL dans la barre d'adresse du
-				navigateur, le routing permet de charger la page correspondante.
+				Le routing est un mécanisme qui permet de naviguer entre les différentes pages d'une
+				application web. Chaque page est associée à une URL spécifique. Quand l'utilisateur
+				clique sur un lien ou entre une URL dans la barre d'adresse du navigateur, le
+				routing permet de charger la page correspondante.
 			</p>
 			<p>
 				Par exemple, si vous aller sur l'url
-				<code>http://localhost:4200/theory/2</code>, Angular va charger la page correspondante à cette URL.
+				<code>http://localhost:4200/theory/2</code>, Angular va charger la page
+				correspondante à cette URL.
 			</p>
 		</div>
 
@@ -29,7 +35,8 @@
 			<ul>
 				<li>Chaque route est associée à un composant.</li>
 				<li>
-					Quand l'utilisateur navigue vers une route, Angular charge le composant associé à cette route et l'affiche dans la vue.
+					Quand l'utilisateur navigue vers une route, Angular charge le composant associé
+					à cette route et l'affiche dans la vue.
 				</li>
 				<li>Angular gère automatiquement la navigation entre les différentes routes.</li>
 			</ul>
@@ -76,13 +83,14 @@ export const routes: Routes = [
 					Cela signifie que la route <code>theory/</code> est associée au fichier
 					<code>src/app/features/theory/theory.routes.ts</code><br />
 					<i
-						>🔎<code>loadChildren</code> permet de faire du lazyloading mais sera vu plus en profondeur dans le chapitre sur le
-						routing.</i
+						>🔎<code>loadChildren</code> permet de faire du lazyloading mais sera vu
+						plus en profondeur dans le chapitre sur le routing.</i
 					>
 				</li>
 				<li>
 					pour continuer, on va devoir regarder le fichier
-					<code>src/app/features/theory/theory.routes.ts</code> (routing spécifique à la theorie)
+					<code>src/app/features/theory/theory.routes.ts</code> (routing spécifique à la
+					theorie)
 					<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Routes} from "@angular/router";
 
@@ -122,10 +130,13 @@ export const routes: Routes = [
 		</div>
 		<div class="card-body">
 			<ul>
-				<li>Le routing est un mécanisme qui permet de naviguer entre les différentes pages de l'application.</li>
 				<li>
-					Si notre module a un routing spécifique, il faut le déclarer dans le fichier de routing du module
-					(<code>theory.routes.ts</code>).
+					Le routing est un mécanisme qui permet de naviguer entre les différentes pages
+					de l'application.
+				</li>
+				<li>
+					Si notre module a un routing spécifique, il faut le déclarer dans le fichier de
+					routing du module (<code>theory.routes.ts</code>).
 				</li>
 				<li>Angular gère automatiquement la navigation entre les différentes routes.</li>
 				<li>Chaque route est associée à un composant.</li>

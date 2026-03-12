@@ -10,15 +10,20 @@
 				(<code>src/app/features/demo/demo-base-routing/demo-base-routing-navigation.routes.ts</code>).<br />
 			</p>
 			<p>
-				⚠️Les manipulations de routing et de navigation ne change pas, toutes les manipulations qui vont être réaliser dans ce
-				module, fonctionne exactement de la même façon que dans le module
+				⚠️Les manipulations de routing et de navigation ne change pas, toutes les
+				manipulations qui vont être réaliser dans ce module, fonctionne exactement de la
+				même façon que dans le module
 				<code>app</code> (avec juste les chemins de fichiers qui changent).
 			</p>
-			<p>Le but de cette démo est de montrer comment fonctionne le routing de base dans Angular.</p>
+			<p>
+				Le but de cette démo est de montrer comment fonctionne le routing de base dans
+				Angular.
+			</p>
 			<p>
 				<i
-					>⚠️Disclaimer: toute les route de cette démo vont commencer par <code>/demo/{{ theoryIndex() }}</code> car c'est le
-					chemin de ce module (<code>http://localhost:4200/demo/{{ theoryIndex() }}</code
+					>⚠️Disclaimer: toute les route de cette démo vont commencer par
+					<code>/demo/{{ theoryIndex() }}</code> car c'est le chemin de ce module (<code
+						>http://localhost:4200/demo/{{ theoryIndex() }}</code
 					>).</i
 				>
 			</p>
@@ -30,17 +35,20 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Nous allons créer une mini application de livre dans le dossier (<code>src/app/features/demo/demo-base-routing</code>) avec
-				2 pages, une page de listing de livres (index), une page de création d'un livre.
+				Nous allons créer une mini application de livre dans le dossier
+				(<code>src/app/features/demo/demo-base-routing</code>) avec 2 pages, une page de
+				listing de livres (index), une page de création d'un livre.
 			</p>
 			<ul>
 				<li>
-					La page d'accueil sera accessible via le chemin <code>http://localhost:4200/demo/{{ theoryIndex() }} /book</code> et
-					affichera un tableau contenant des livres.
+					La page d'accueil sera accessible via le chemin
+					<code>http://localhost:4200/demo/{{ theoryIndex() }} /book</code> et affichera
+					un tableau contenant des livres.
 				</li>
 				<li>
 					La page de création d'un livre sera accessible via le chemin
-					<code>http://localhost:4200/demo/{{ theoryIndex() }}/book/create</code> et affichera un formulaire pour créer un livre.
+					<code>http://localhost:4200/demo/{{ theoryIndex() }}/book/create</code> et
+					affichera un formulaire pour créer un livre.
 				</li>
 			</ul>
 		</div>
@@ -51,31 +59,42 @@
 		<div class="card-body">
 			<p>
 				Pour rappel: une page est en fait un composant qui sera utiliser dans le fichier
-				<code>*.routes.ts</code> précéder de "<code>component:</code>" ou "<code>loadComponent:"</code>
+				<code>*.routes.ts</code> précéder de "<code>component:</code>" ou "<code
+					>loadComponent:"</code
+				>
 			</p>
 
 			<p>
 				La première sera donc de créer le composant avec la commande: <br />
-				<code>ng g c /features/demo/pages/demo-base-routing-navigation/book/pages/index</code>
+				<code
+					>ng g c /features/demo/pages/demo-base-routing-navigation/book/pages/index</code
+				>
 			</p>
-			<img [src]="imgUrlBookIndexStructure" alt="Structure du dossier book" class="img-fluid" />
+			<img
+				[src]="imgUrlBookIndexStructure"
+				alt="Structure du dossier book"
+				class="img-fluid"
+			/>
 			<ul>
 				<li>
 					<i>
-						🔎 On notera que vu que le composant est dans un dossier autre que <code>src/app</code>, il faut bien penser à
-						ajouter le chemin complet du dossier (<code>/features/demo/demo-base-routing-navigation/book/pages/index</code>).
+						🔎 On notera que vu que le composant est dans un dossier autre que
+						<code>src/app</code>, il faut bien penser à ajouter le chemin complet du
+						dossier
+						(<code>/features/demo/demo-base-routing-navigation/book/pages/index</code>).
 					</i>
 				</li>
 				<li>
 					<i>
-						🔎 Dans le dossier <code>demo-base-routing-navigation</code>, on crée un dossier <code>book</code> qui contiendra
-						tous les composants de la FONCTIONNALITÉ <code>book</code>.
+						🔎 Dans le dossier <code>demo-base-routing-navigation</code>, on crée un
+						dossier <code>book</code> qui contiendra tous les composants de la
+						FONCTIONNALITÉ <code>book</code>.
 					</i>
 				</li>
 			</ul>
 			<p>
-				Customisation du fichier <code>index.component.html</code> avec une lien vers la futur page <code>create</code> et un
-				tableau de livres:
+				Customisation du fichier <code>index.component.html</code> avec une lien vers la
+				futur page <code>create</code> et un tableau de livres:
 				<textarea highlight-js [options]="{}" [lang]="'html'">
 <a routerLink="create">Create</a>
 <table>
@@ -104,7 +123,10 @@
 </table>
   				</textarea
 				>
-				<i>⚠️ On n'oublie pas d'importer <code>routerLink</code> dans le fichier ts du composant index</i>
+				<i
+					>⚠️ On n'oublie pas d'importer <code>routerLink</code> dans le fichier ts du
+					composant index</i
+				>
 			</p>
 		</div>
 
@@ -114,12 +136,17 @@
 		<div class="card-body">
 			<h3>Book routing</h3>
 			<p>
-				Étant donné que la fonctinnalité <code>book</code> possède des sous-liens (pages <code>/book</code> et
-				<code>/book/create</code>), il est nécessaire de créer un fichier de routing pour cette fonctionnalité.
+				Étant donné que la fonctinnalité <code>book</code> possède des sous-liens (pages
+				<code>/book</code> et <code>/book/create</code>), il est nécessaire de créer un
+				fichier de routing pour cette fonctionnalité.
 			</p>
 			<p>
 				Créer le fichier <code>book.routes.ts</code> dans le dossier <code>book</code><br />
-				<img [src]="imgUrlBookRoutesStructure" alt="Structure du dossier book" class="img-fluid" />
+				<img
+					[src]="imgUrlBookRoutesStructure"
+					alt="Structure du dossier book"
+					class="img-fluid"
+				/>
 			</p>
 			<p>
 				Ajouter le code suivant dans <code>book.routes.ts</code>:
@@ -138,27 +165,30 @@ export const routes: Routes = [
 			<ul>
 				<li>
 					<i
-						>🔎 <code>path: ""</code>, signifie que le chemin pour accéder à la page <code>index</code> de book est
+						>🔎 <code>path: ""</code>, signifie que le chemin pour accéder à la page
+						<code>index</code> de book est
 						<code>/book</code>
 					</i>
 				</li>
 				<li>
 					<i>
-						🔎 <code>loadComponent:</code>, permet de charger le composant de manière asynchrone. Cela permet de ne pas charger
-						tous les composants en même temps.
+						🔎 <code>loadComponent:</code>, permet de charger le composant de manière
+						asynchrone. Cela permet de ne pas charger tous les composants en même temps.
 					</i>
 				</li>
 			</ul>
 
 			<h3>Routing jusque <code>book.routes.ts</code></h3>
 			<p>
-				Actuellement, le routing de <code>book</code> est créé mais il n'est pas encore utilisé dans le routing de
-				<code>demo-base-routing-navigation</code>. Ce qui signifie que si on se rend sur
-				<code>http://localhost:4200/demo/{{ theoryIndex() }}/book</code>, on aura une erreur car le routing pour arrivé à
-				<code>book.routes.ts</code> n'est pas encore définis.
+				Actuellement, le routing de <code>book</code> est créé mais il n'est pas encore
+				utilisé dans le routing de <code>demo-base-routing-navigation</code>. Ce qui
+				signifie que si on se rend sur
+				<code>http://localhost:4200/demo/{{ theoryIndex() }}/book</code>, on aura une erreur
+				car le routing pour arrivé à <code>book.routes.ts</code> n'est pas encore définis.
 			</p>
 			<p>
-				Il faut ajouter le routing de <code>book</code> dans le fichier <code>demo-base-routing-navigation.routes.ts</code>
+				Il faut ajouter le routing de <code>book</code> dans le fichier
+				<code>demo-base-routing-navigation.routes.ts</code>
 				:
 				<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Routes} from "@angular/router";
@@ -191,10 +221,14 @@ export const routes: Routes = [
 			<ol>
 				<li>
 					Création du composant <code>create</code> de book avec la commande: <br />
-					<code>ng g c /features/demo/pages/demo-base-routing-navigation/book/pages/create</code>
+					<code
+						>ng g c
+						/features/demo/pages/demo-base-routing-navigation/book/pages/create</code
+					>
 				</li>
 				<li>
-					Customisation du fichier <code>create.component.html</code> avec un formulaire pour créer un livre:
+					Customisation du fichier <code>create.component.html</code> avec un formulaire
+					pour créer un livre:
 					<textarea highlight-js [options]="{}" [lang]="'html'">
 <h2>Création de livre</h2>
 <form>
@@ -217,7 +251,8 @@ export const routes: Routes = [
 					>
 				</li>
 				<li>
-					Routing vers la page <code>create</code> de book depuis le fichier <code>book.routes.ts</code>:
+					Routing vers la page <code>create</code> de book depuis le fichier
+					<code>book.routes.ts</code>:
 					<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Routes} from "@angular/router";
 
@@ -241,8 +276,9 @@ export const routes: Routes = [
 					>
 				</li>
 				<li>
-					Il n'y a pas besoin de rajouter le routing de <code>create</code> dans le fichier
-					<code>demo-base-routing-navigation.routes.ts</code> car <code>create</code> est une sous-page de <code>book</code>.
+					Il n'y a pas besoin de rajouter le routing de <code>create</code> dans le
+					fichier <code>demo-base-routing-navigation.routes.ts</code> car
+					<code>create</code> est une sous-page de <code>book</code>.
 				</li>
 			</ol>
 		</div>
@@ -254,9 +290,13 @@ export const routes: Routes = [
 		</div>
 		<div class="card-body">
 			<p>
-				🎉 Bravo! Vous avez réussi à créer une mini application de livre avec une page de listing et une page de création de livre.
+				🎉 Bravo! Vous avez réussi à créer une mini application de livre avec une page de
+				listing et une page de création de livre.
 			</p>
-			<p>🚀 Vous avez appris à créer un composant, à le customiser et à le router dans une application Angular.</p>
+			<p>
+				🚀 Vous avez appris à créer un composant, à le customiser et à le router dans une
+				application Angular.
+			</p>
 		</div>
 	</article>
 </section>

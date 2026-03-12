@@ -1,23 +1,39 @@
 <theory-header chapterName="Navigation" />
 <section class="card-body">
 	<p>
-		Jusque maintenant, pour se déplacer de page en page, nous utilisons <code>routerLink</code> dans une balise <code>&lt;a&gt;</code>.
+		Jusque maintenant, pour se déplacer de page en page, nous utilisons
+		<code>routerLink</code> dans une balise <code>&lt;a&gt;</code>.
 	</p>
 	<article class="card">
 		<div class="card-header">
 			<h2>Redirection depuis le code</h2>
 		</div>
 		<div class="card-body">
-			<i>Mais comment puis-je rediriger l'utilisateur vers une autre page sans lui demander de cliquer?</i>
-			<p>Nous pouvons utiliser le service <code>Router</code> pour rediriger l'utilisateur vers une autre page.</p>
+			<i
+				>Mais comment puis-je rediriger l'utilisateur vers une autre page sans lui demander
+				de cliquer?</i
+			>
+			<p>
+				Nous pouvons utiliser le service <code>Router</code> pour rediriger l'utilisateur
+				vers une autre page.
+			</p>
 			<p>Pour cela, nous devons d'abord l'injecter dans notre composant.</p>
-			<p>Ensuite, nous pouvons appeler la méthode <code>navigate()</code> du service <code>Router</code>.</p>
+			<p>
+				Ensuite, nous pouvons appeler la méthode <code>navigate()</code> du service
+				<code>Router</code>.
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 			this._router.navigate(['/', 'path']);
 			</textarea
 			>
-			<p>Cela redirigera l'utilisateur vers la page spécifiée dans le tableau de chaînes de caractères.</p>
-			<i>🔎 l'utilisateur sera rediriger vers l'url : <code>http://localhost:4200/path</code></i>
+			<p>
+				Cela redirigera l'utilisateur vers la page spécifiée dans le tableau de chaînes de
+				caractères.
+			</p>
+			<i
+				>🔎 l'utilisateur sera rediriger vers l'url :
+				<code>http://localhost:4200/path</code></i
+			>
 		</div>
 	</article>
 
@@ -26,13 +42,18 @@
 			<h2>Navigation avec paramètre</h2>
 		</div>
 		<div class="card-body">
-			<p>La navigation avec paramètre permet de passer des informations "simple" à la page cible.</p>
+			<p>
+				La navigation avec paramètre permet de passer des informations "simple" à la page
+				cible.
+			</p>
 			<h3>Routing</h3>
 			<p>
-				Par exemple: <code>http://localhost:4200/book/14</code>, le "14" est un paramètre simple qui signifie que l'on souhaite
-				obtenir les détails du livre avec l'id 14. <br />
-				pour ne pas devoir créer une route: <code>/book/14</code>, <code>/book/15</code>, <code>/book/16</code>... si on a 100
-				livres, on peut créer une route avec une navigation paramétrée.
+				Par exemple: <code>http://localhost:4200/book/14</code>, le "14" est un paramètre
+				simple qui signifie que l'on souhaite obtenir les détails du livre avec l'id 14.
+				<br />
+				pour ne pas devoir créer une route: <code>/book/14</code>, <code>/book/15</code>,
+				<code>/book/16</code>... si on a 100 livres, on peut créer une route avec une
+				navigation paramétrée.
 			</p>
 			<p>Dans le fichier de routing, on notera par exemple:</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
@@ -42,9 +63,14 @@
 },
 			</textarea
 			>
-			<p>Le fait de mettre <code>:</code> dans la route indique que le morceau qui suit est une paramètre qui sera variable.</p>
+			<p>
+				Le fait de mettre <code>:</code> dans la route indique que le morceau qui suit est
+				une paramètre qui sera variable.
+			</p>
 			<h3>Composant</h3>
-			<p>Pour récupérer le paramètre, nous utilisons le serivce <code>ActivatedRoute</code>:</p>
+			<p>
+				Pour récupérer le paramètre, nous utilisons le serivce <code>ActivatedRoute</code>:
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Component, inject} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
@@ -81,9 +107,15 @@ export class BookDetailComponent {
 				Il est aussi possible de passer des paramètres dans l'url, par exemple:
 				<code>http://localhost:4200/demo/14?author=J.%20K.%20Rowling&hello=world</code>.
 			</p>
-			<p>Ce qui permet de stocker un objet <code>&#123;"author":"J. K. Rowling","hello":"world"&#125;</code></p>
+			<p>
+				Ce qui permet de stocker un objet
+				<code>&#123;"author":"J. K. Rowling","hello":"world"&#125;</code>
+			</p>
 			<h3>Pour stocker des informations dans l'URL</h3>
-			<p>Lors de la redirection, nous rajoutons un objet après le tableau du <code>path</code>:</p>
+			<p>
+				Lors de la redirection, nous rajoutons un objet après le tableau du
+				<code>path</code>:
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 this._router.navigate(["/", "demo", "14"],
 { // options supplémentaires pour la redirection
@@ -128,18 +160,35 @@ export class BookDetailComponent {
 			<h2>Évenements</h2>
 		</div>
 		<div class="card-body">
-			<p>Lorsqu'on navigue dans l'application et qu'on passe d'un composant à l'autre, nous traversons une série d'évenements:</p>
+			<p>
+				Lorsqu'on navigue dans l'application et qu'on passe d'un composant à l'autre, nous
+				traversons une série d'évenements:
+			</p>
 			<ul>
-				<li><code>NavigationStart</code>: l'utilisateur a cliqué sur un lien et la navigation commence.</li>
-				<li><code>RoutesRecognized</code>: les routes ont été reconnues et le composant correspondant a été trouvé.</li>
-				<li><code>GuardsCheckStart</code>: les gardes de route commencent à être vérifiés.</li>
-				<li><code>ChildActivationStart</code>: le composant enfant commence à être activé.</li>
+				<li>
+					<code>NavigationStart</code>: l'utilisateur a cliqué sur un lien et la
+					navigation commence.
+				</li>
+				<li>
+					<code>RoutesRecognized</code>: les routes ont été reconnues et le composant
+					correspondant a été trouvé.
+				</li>
+				<li>
+					<code>GuardsCheckStart</code>: les gardes de route commencent à être vérifiés.
+				</li>
+				<li>
+					<code>ChildActivationStart</code>: le composant enfant commence à être activé.
+				</li>
 				<li><code>ActivationStart</code>: le composant commence à être activé.</li>
-				<li><code>GuardsCheckEnd</code>: les gardes de route ont été vérifiés avec succès.</li>
+				<li>
+					<code>GuardsCheckEnd</code>: les gardes de route ont été vérifiés avec succès.
+				</li>
 				<li><code>ResolveStart</code>: la résolution des données commence.</li>
 				<li><code>ResolveEnd</code>: la résolution des données est terminée.</li>
 				<li><code>ActivationEnd</code>: le composant est activé avec succès.</li>
-				<li><code>ChildActivationEnd</code>: le composant enfant est activé avec succès.</li>
+				<li>
+					<code>ChildActivationEnd</code>: le composant enfant est activé avec succès.
+				</li>
 				<li><code>NavigationEnd</code>: la navigation est terminée avec succès.</li>
 			</ul>
 			<p>Nous pouvons écouter ces évenements en utilisant le service <code>Router</code>:</p>

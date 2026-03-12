@@ -6,8 +6,8 @@ export const routes: Routes = [
 		path: "",
 		canActivate: [isConnectedGuard],
 		loadComponent: () =>
-			import(
-				"@app/features/demo/pages/demo-guard/demo-guard.component"
-			).then(c => c.DemoGuardComponent),
+			import("@app/features/demo/pages/demo-guard/demo-guard.component").then(
+				c => c.DemoGuardComponent,
+			),
 	},
 ];

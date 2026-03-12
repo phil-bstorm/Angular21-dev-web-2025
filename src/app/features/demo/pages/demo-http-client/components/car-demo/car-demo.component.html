@@ -19,7 +19,10 @@
 @if (creatingSuccess) {
 	<div class="alert alert-success">
 		<p>Car created successfully!</p>
-		<p>Regardes dans le fichier de json-server apres les donnés que tu as entré! : <code>fake_api\fake-api.json</code></p>
+		<p>
+			Regardes dans le fichier de json-server apres les donnés que tu as entré! :
+			<code>fake_api\fake-api.json</code>
+		</p>
 	</div>
 } @else if (creatingError) {
 	<p class="color-red">{{ creatingError }}</p>

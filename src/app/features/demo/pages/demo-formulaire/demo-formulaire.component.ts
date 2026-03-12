@@ -1,10 +1,5 @@
 import {Component, inject} from "@angular/core";
-import {
-	FormBuilder,
-	FormControl,
-	ReactiveFormsModule,
-	Validators,
-} from "@angular/forms";
+import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
 import {DemoHeaderComponent} from "@app/features/demo/components/layout/demo-header/demo-header.component";
 import {insultsValidator} from "@app/features/demo/pages/demo-formulaire/validator-custom/insults.validator";
 
@@ -25,13 +20,7 @@ export class DemoFormulaireComponent {
 		}),
 	]);
 
-	private tableauInsultes = [
-		"insulte1",
-		"insulte2",
-		"insulte3",
-		"insulte4",
-		"insulte5",
-	];
+	private tableauInsultes = ["insulte1", "insulte2", "insulte3", "insulte4", "insulte5"];
 
 	// formulaire de contact
 	contactForm = this._fb.group({

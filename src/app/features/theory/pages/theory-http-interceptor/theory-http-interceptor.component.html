@@ -6,11 +6,15 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Les <strong>Http Interceptors</strong> sont des classes qui interceptent chaque requête HTTP sortante et la réponse
-				entrante. Ils sont souvent utilisés pour ajouter des en-têtes comme les jetons d'authentification ou pour gérer les erreurs
-				de manière globale.
+				Les <strong>Http Interceptors</strong> sont des classes qui interceptent chaque
+				requête HTTP sortante et la réponse entrante. Ils sont souvent utilisés pour ajouter
+				des en-têtes comme les jetons d'authentification ou pour gérer les erreurs de
+				manière globale.
 			</p>
-			<p>Pour créer un intercepteur, on peut utiliser la commande : <code>ng g interceptor chemin/de/mon/intercepteur</code></p>
+			<p>
+				Pour créer un intercepteur, on peut utiliser la commande :
+				<code>ng g interceptor chemin/de/mon/intercepteur</code>
+			</p>
 		</div>
 	</article>
 
@@ -19,7 +23,10 @@
 			<h2>Exemple de Token Interceptor</h2>
 		</div>
 		<div class="card-body">
-			<p>Le <code>TokenInterceptor</code> est un intercepteur qui ajoute un jeton d'authentification à chaque requête sortante.</p>
+			<p>
+				Le <code>TokenInterceptor</code> est un intercepteur qui ajoute un jeton
+				d'authentification à chaque requête sortante.
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {HttpInterceptorFn} from '@angular/common/http';
 import {AuthService} from '../services/auth.service';
@@ -53,18 +60,22 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
 			<p>🔎 Analyse:</p>
 			<ul>
 				<li>
-					Le service <code>AuthService</code> est injecté dans l'intercepteur pour récupérer le jeton d'accès de l'utilisateur
-					autorisée.
+					Le service <code>AuthService</code> est injecté dans l'intercepteur pour
+					récupérer le jeton d'accès de l'utilisateur autorisée.
 				</li>
 				<li>
-					La méthode <code>currentUser()</code> du service <code>AuthService</code> est utilisée pour obtenir l'utilisateur
-					connecté.
+					La méthode <code>currentUser()</code> du service <code>AuthService</code> est
+					utilisée pour obtenir l'utilisateur connecté.
 				</li>
 				<li>
-					Si l'utilisateur est connecté, le jeton d'accès est extrait et ajouté à l'en-tête de la requête HTTP en utilisant la
-					méthode <code>clone()</code> de l'objet <code>HttpRequest</code>.
+					Si l'utilisateur est connecté, le jeton d'accès est extrait et ajouté à
+					l'en-tête de la requête HTTP en utilisant la méthode <code>clone()</code> de
+					l'objet <code>HttpRequest</code>.
 				</li>
-				<li>La méthode <code>next()</code> est appelée avec la requête clonée pour continuer le traitement de la requête.</li>
+				<li>
+					La méthode <code>next()</code> est appelée avec la requête clonée pour continuer
+					le traitement de la requête.
+				</li>
 			</ul>
 		</div>
 	</article>
@@ -75,8 +86,9 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
 		</div>
 		<div class="card-body">
 			<p>
-				Le <code>ErrorInterceptor</code> est un intercepteur qui gère les erreurs HTTP et redirige le user vers les pages
-				appropriées si nécessaire (page pour l'erreur 500, login...)
+				Le <code>ErrorInterceptor</code> est un intercepteur qui gère les erreurs HTTP et
+				redirige le user vers les pages appropriées si nécessaire (page pour l'erreur 500,
+				login...)
 			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import { HttpInterceptorFn } from '@angular/common/http';
@@ -126,19 +138,26 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 			>
 			<p>🔎 Analyse:</p>
 			<ul>
-				<li>Le service <code>Router</code> est injecté dans l'intercepteur pour gérer la redirection en cas d'erreur.</li>
-				<li>La méthode <code>catchError()</code> est utilisée pour intercepter les erreurs de la requête HTTP.</li>
 				<li>
-					Si une erreur 401 (non autorisée) est rencontrée, l'utilisateur est redirigé vers la page de connexion et le service
+					Le service <code>Router</code> est injecté dans l'intercepteur pour gérer la
+					redirection en cas d'erreur.
+				</li>
+				<li>
+					La méthode <code>catchError()</code> est utilisée pour intercepter les erreurs
+					de la requête HTTP.
+				</li>
+				<li>
+					Si une erreur 401 (non autorisée) est rencontrée, l'utilisateur est redirigé
+					vers la page de connexion et le service
 					<code>AuthService</code> est utilisé pour se déconnecter.
 				</li>
 				<li>
-					Si une erreur 500 (erreur serveur) est rencontrée, l'utilisateur est redirigé vers une page d'erreur spécifique. (Non
-					implémenté dans cet exemple)
+					Si une erreur 500 (erreur serveur) est rencontrée, l'utilisateur est redirigé
+					vers une page d'erreur spécifique. (Non implémenté dans cet exemple)
 				</li>
 				<li>
-					La méthode <code>throwError()</code> est utilisée pour renvoyer l'erreur au flux d'observation, permettant ainsi de
-					gérer l'erreur dans le composant appelant.
+					La méthode <code>throwError()</code> est utilisée pour renvoyer l'erreur au flux
+					d'observation, permettant ainsi de gérer l'erreur dans le composant appelant.
 				</li>
 			</ul>
 		</div>
@@ -150,9 +169,10 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 		</div>
 		<div class="card-body">
 			<p>
-				Pour mettre en place les interceptors, il faut les déclarer dans le <code>app.config.ts</code> et modifier l'appel de
-				<code>provideHttpClient</code>. En rajoutant <code>withInterceptors()</code> et en lui passant un tableau d'intercepteurs
-				(préalablement coder).
+				Pour mettre en place les interceptors, il faut les déclarer dans le
+				<code>app.config.ts</code> et modifier l'appel de <code>provideHttpClient</code>. En
+				rajoutant <code>withInterceptors()</code> et en lui passant un tableau
+				d'intercepteurs (préalablement coder).
 			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 provideHttpClient( withInterceptors( [ jwtInterceptor, errorInterceptor ] ) )

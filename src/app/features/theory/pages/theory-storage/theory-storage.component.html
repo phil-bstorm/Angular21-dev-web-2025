@@ -5,25 +5,38 @@
 			<h2>Types de stockages</h2>
 		</div>
 		<div class="card-body">
-			<p>Lorsque l'on veut stocker des donnés qui persistent, on peut utiliser le localStorage ou le sessionStorage ou le cookie.</p>
+			<p>
+				Lorsque l'on veut stocker des donnés qui persistent, on peut utiliser le
+				localStorage ou le sessionStorage ou le cookie.
+			</p>
 			<h3>LocalStorage</h3>
 			<p>
-				Le localStorage est un stockage persistant, c'est-à-dire que les données restent disponibles même après la fermeture du
-				navigateur. Il est accessible via l'objet <code>localStorage</code> et permet de stocker des paires clé-valeur.
+				Le localStorage est un stockage persistant, c'est-à-dire que les données restent
+				disponibles même après la fermeture du navigateur. Il est accessible via l'objet
+				<code>localStorage</code> et permet de stocker des paires clé-valeur.
 			</p>
 			<h3>SessionStorage</h3>
 			<p>
-				Le sessionStorage est un stockage temporaire, c'est-à-dire que les données sont supprimées lorsque l'onglet ou la fenêtre du
-				navigateur est fermée. Il est accessible via l'objet <code>sessionStorage</code> et permet également de stocker des paires
-				clé-valeur. <br />
-				<i>Étant donner que le SessionStorage se vide lorsque l'onglet est fermé il n'est pas utilisé en Angular.</i>
+				Le sessionStorage est un stockage temporaire, c'est-à-dire que les données sont
+				supprimées lorsque l'onglet ou la fenêtre du navigateur est fermée. Il est
+				accessible via l'objet <code>sessionStorage</code> et permet également de stocker
+				des paires clé-valeur. <br />
+				<i
+					>Étant donner que le SessionStorage se vide lorsque l'onglet est fermé il n'est
+					pas utilisé en Angular.</i
+				>
 			</p>
 			<h3>Cookie</h3>
 			<p>
-				Un cookie est un petit fichier texte qui est stocké sur l'ordinateur de l'utilisateur. Il est envoyé au serveur à chaque
-				requête HTTP. Les cookies sont souvent utilisés pour stocker des informations de session ou des préférences utilisateur.
+				Un cookie est un petit fichier texte qui est stocké sur l'ordinateur de
+				l'utilisateur. Il est envoyé au serveur à chaque requête HTTP. Les cookies sont
+				souvent utilisés pour stocker des informations de session ou des préférences
+				utilisateur.
 				<br />
-				<i>Note si on souhaite utiliser les cookies, il faut un package supplémentaire: <code>ngx-cookie-service</code></i>
+				<i
+					>Note si on souhaite utiliser les cookies, il faut un package supplémentaire:
+					<code>ngx-cookie-service</code></i
+				>
 			</p>
 		</div>
 	</article>
@@ -34,10 +47,14 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Pour sauvegarder des données dans le localStorage ou le sessionStorage, on utilise la méthode
-				<code>setItem(key, value)</code>. La clé est une chaîne de caractères qui identifie la donnée, et la valeur est la donnée à
-				stocker. <br />
-				<i>Note: il faut convertir les objets en JSON avant de les stocker à l'aide de <code>JSON.stringify</code>.</i>
+				Pour sauvegarder des données dans le localStorage ou le sessionStorage, on utilise
+				la méthode
+				<code>setItem(key, value)</code>. La clé est une chaîne de caractères qui identifie
+				la donnée, et la valeur est la donnée à stocker. <br />
+				<i
+					>Note: il faut convertir les objets en JSON avant de les stocker à l'aide de
+					<code>JSON.stringify</code>.</i
+				>
 			</p>
 		</div>
 	</article>
@@ -48,9 +65,14 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Pour récupérer des données dans le localStorage ou le sessionStorage, on utilise la méthode
-				<code>getItem(key)</code>. La clé est la même que celle utilisée lors de la sauvegarde. <br />
-				<i>Note: il faut convertir les données JSON en objet à l'aide de <code>JSON.parse</code>.</i>
+				Pour récupérer des données dans le localStorage ou le sessionStorage, on utilise la
+				méthode
+				<code>getItem(key)</code>. La clé est la même que celle utilisée lors de la
+				sauvegarde. <br />
+				<i
+					>Note: il faut convertir les données JSON en objet à l'aide de
+					<code>JSON.parse</code>.</i
+				>
 			</p>
 		</div>
 	</article>
@@ -60,7 +82,10 @@
 			<h2>Exemple de code</h2>
 		</div>
 		<div class="card-body">
-			<p>Voici un exemple de code pour stocker et récupérer des données dans le localStorage :</p>
+			<p>
+				Voici un exemple de code pour stocker et récupérer des données dans le localStorage
+				:
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Component, OnInit} from "@angular/core";
 import {DemoHeaderComponent} from "@app/features/demo/components/layout/demo-header/demo-header.component";
@@ -88,16 +113,19 @@ export class DemoStorageComponent implements OnInit {
 			<p>🔎Analyse:</p>
 			<ul>
 				<li>
-					<code>ngOnInit</code> est une méthode du cycle de vie d'un composant Angular qui est appelée après que le composant a
-					été initialisé. C'est ici que l'on peut récupérer les données du localStorage.
+					<code>ngOnInit</code> est une méthode du cycle de vie d'un composant Angular qui
+					est appelée après que le composant a été initialisé. C'est ici que l'on peut
+					récupérer les données du localStorage.
 				</li>
 				<li>
-					<code>localStorage.getItem("username")</code> permet de récupérer la valeur associée à la clé <code>username</code>. Si
-					la valeur n'existe pas, on retourne une chaîne vide.
+					<code>localStorage.getItem("username")</code> permet de récupérer la valeur
+					associée à la clé <code>username</code>. Si la valeur n'existe pas, on retourne
+					une chaîne vide.
 				</li>
 				<li>
-					<code>localStorage.setItem("username", this.username)</code> permet de sauvegarder la valeur de la variable
-					<code>username</code> dans le localStorage sous la clé <code>username</code>.
+					<code>localStorage.setItem("username", this.username)</code> permet de
+					sauvegarder la valeur de la variable <code>username</code> dans le localStorage
+					sous la clé <code>username</code>.
 				</li>
 			</ul>
 		</div>

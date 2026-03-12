@@ -4,20 +4,23 @@
 </div>
 <div class="card-body">
 	<p>
-		Nous allons créer notre propre pipe pour transformer un nombre Celsius en Fahrenheit. Pour cela, nous allons générer un pipe avec
-		Angular CLI et le personnaliser.
+		Nous allons créer notre propre pipe pour transformer un nombre Celsius en Fahrenheit. Pour
+		cela, nous allons générer un pipe avec Angular CLI et le personnaliser.
 	</p>
 	<p>
-		Le dossier de travail étant : <code>src/app/features/demo/pages/demo-pipe/demo-custom-pipe/</code>, je vais devoir préciser ce
-		chemin lors de la création de la pipe
+		Le dossier de travail étant :
+		<code>src/app/features/demo/pages/demo-pipe/demo-custom-pipe/</code>, je vais devoir
+		préciser ce chemin lors de la création de la pipe
 	</p>
 	<ul>
 		<li>
 			<strong>Générer un pipe</strong> : Utilisez Angular CLI pour générer un pipe.<br />
-			<code>ng generate pipe /features/demo/pages/demo-pipe/pipes/CelsiusToFahrenheit</code><br />
+			<code>ng generate pipe /features/demo/pages/demo-pipe/pipes/CelsiusToFahrenheit</code
+			><br />
 			<i
-				>🔎 On notera que j'ai rajouté <code>/pipes/</code> lors de la création, c'est en fait pour sauvegarder mes différentes
-				pipes de ce module dans ce dossier. Si j'utilise cette pipe partout dans mon application, alors elle aurait été créer dans
+				>🔎 On notera que j'ai rajouté <code>/pipes/</code> lors de la création, c'est en
+				fait pour sauvegarder mes différentes pipes de ce module dans ce dossier. Si
+				j'utilise cette pipe partout dans mon application, alors elle aurait été créer dans
 				le module <code>Shared</code>.</i
 			>
 		</li>
@@ -25,10 +28,12 @@
 			<strong>Implémentation du code</strong> :<br />
 			<ul>
 				<li>
-					<strong>(1 & 2) Place les bons types</strong>: lors que l'on créer un pipe, par défaut les types utiliser sont
-					<code>unknown</code>.
+					<strong>(1 & 2) Place les bons types</strong>: lors que l'on créer un pipe, par
+					défaut les types utiliser sont <code>unknown</code>.
 				</li>
-				<li><strong>(3) Implémentation</strong> : Écrivez la logique de transformation dans</li>
+				<li>
+					<strong>(3) Implémentation</strong> : Écrivez la logique de transformation dans
+				</li>
 			</ul>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
 import {Pipe, PipeTransform} from "@angular/core";

@@ -11,9 +11,7 @@ export class TheoryCycleDeVieComponent {
 	imageUrlngOnChanges = "assets/theory/cycle-de-vie/ngOnChanges.png";
 	imageUrlngOnInit = "assets/theory/cycle-de-vie/ngOnInit.png";
 	imageUrlngDoCheck = "assets/theory/cycle-de-vie/ngDoCheck.png";
-	imageUrlngAfterContentInit =
-		"assets/theory/cycle-de-vie/ngAfterContentInit.png";
-	imageUrlngAfterContentChecked =
-		"assets/theory/cycle-de-vie/ngAfterContentChecked.png";
+	imageUrlngAfterContentInit = "assets/theory/cycle-de-vie/ngAfterContentInit.png";
+	imageUrlngAfterContentChecked = "assets/theory/cycle-de-vie/ngAfterContentChecked.png";
 	imageUrlngOnDestroy = "assets/theory/cycle-de-vie/ngOnDestroy.png";
 }

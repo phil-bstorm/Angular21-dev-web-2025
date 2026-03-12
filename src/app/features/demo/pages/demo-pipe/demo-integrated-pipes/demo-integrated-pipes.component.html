@@ -20,7 +20,10 @@
 		<li>percent : {{ 0.533 | percent }}</li>
 		<li>nombre avec minimum de chiffre affiché : {{ 0.533 | number: "2.2" }}</li>
 		<li>nombre float maximum après la virgule : {{ 0.533 | number: "0.0-2" }}</li>
-		<li>nombre avec minimum de chiffre affiché et séparateur de millier : {{ 1000 | number: "2.2-2" }}</li>
+		<li>
+			nombre avec minimum de chiffre affiché et séparateur de millier :
+			{{ 1000 | number: "2.2-2" }}
+		</li>
 		<li>json : {{ {name: "John", age: 30} | json }}</li>
 		<li>slice (hello world, de 1 à 7): {{ "hello world" | slice: 1 : 7 }}</li>
 	</ul>

@@ -5,11 +5,7 @@ import {DemoCustomPipeComponent} from "@app/features/demo/pages/demo-pipe/demo-c
 
 @Component({
 	selector: "demo-pipe",
-	imports: [
-		DemoHeaderComponent,
-		DemoIntegratedPipesComponent,
-		DemoCustomPipeComponent,
-	],
+	imports: [DemoHeaderComponent, DemoIntegratedPipesComponent, DemoCustomPipeComponent],
 	templateUrl: "./demo-pipe.component.html",
 	styleUrl: "./demo-pipe.component.scss",
 })

@@ -14,22 +14,8 @@ export class CarDemoComponent {
 	private readonly _fb = inject(FormBuilder);
 
 	readonly carForm = this._fb.group({
-		brand: [
-			"",
-			[
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(32),
-			],
-		],
-		model: [
-			"",
-			[
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(32),
-			],
-		],
+		brand: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
+		model: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
 		year: [new Date().getFullYear()],
 	});
 

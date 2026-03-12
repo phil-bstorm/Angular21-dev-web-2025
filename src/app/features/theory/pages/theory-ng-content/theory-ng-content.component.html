@@ -6,8 +6,9 @@
 		</div>
 		<div class="card-body">
 			<p>
-				NgContent est une directive Angular qui permet d'insérer du contenu HTML dans un composant. Elle est utilisée pour créer des
-				composants réutilisables et flexibles en permettant aux développeurs de définir des emplacements dans le modèle du composant
+				NgContent est une directive Angular qui permet d'insérer du contenu HTML dans un
+				composant. Elle est utilisée pour créer des composants réutilisables et flexibles en
+				permettant aux développeurs de définir des emplacements dans le modèle du composant
 				où le contenu peut être inséré.
 			</p>
 			<i>🔎 Les résultats des code ci)dessous se trouve dans la partie démo de ce chapitre</i>
@@ -26,7 +27,10 @@
 <p>⬆️Le contenu précédent vient du parent ⬆️</p>
 			</textarea
 			>
-			<p>La balise <code>ng-content</code> sera remplacer par les balises transmisent par le parent.</p>
+			<p>
+				La balise <code>ng-content</code> sera remplacer par les balises transmisent par le
+				parent.
+			</p>
 
 			<h3>Html du parent</h3>
 			<textarea highlight-js [options]="{}" [lang]="'html'">
@@ -44,10 +48,14 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Si on souhaite placer plusieurs éléments, il faudra spécifier le sélecteur de chaque élément en utilisant
+				Si on souhaite placer plusieurs éléments, il faudra spécifier le sélecteur de chaque
+				élément en utilisant
 				<code>select</code> dans la balise <code>ng-content</code>.
 			</p>
-			<i>🔎Note: tout comme les composants, il y a différents moyen d'utiliser les sélecteurs (par le tag et sélecteur CSS)</i>
+			<i
+				>🔎Note: tout comme les composants, il y a différents moyen d'utiliser les
+				sélecteurs (par le tag et sélecteur CSS)</i
+			>
 			<h3>Html de l'enfant (qui va afficher l'HTML transmit par le parent)</h3>
 			<textarea highlight-js [options]="{}" [lang]="'html'">
 <p>⬇️ Content 1 ⬇️</p>
@@ -75,8 +83,9 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Si on souhaite avoir un contenu par défaut dans le cas où le contenu n'est pas fournis, il suffit de placer le contenu par
-				défaut entre les balises <code>ng-content</code> de l'enfant.
+				Si on souhaite avoir un contenu par défaut dans le cas où le contenu n'est pas
+				fournis, il suffit de placer le contenu par défaut entre les balises
+				<code>ng-content</code> de l'enfant.
 			</p>
 
 			<h3>Html de l'enfant (qui va afficher l'HTML transmit par le parent)</h3>

@@ -3,10 +3,7 @@ import {
 	FolderStructureModel,
 } from "@shared/components/folder-structure/models/folder-structure.model";
 
-export const findWithPath = (
-	folderStructure: FolderStructureModel,
-	path: string,
-) => {
+export const findWithPath = (folderStructure: FolderStructureModel, path: string) => {
 	// split the path into an array of folder names
 	const pathArray = path.split("/");
 
@@ -26,9 +23,7 @@ export const findWithPath = (
 			const ffName = pathArray[i];
 
 			// get the current folder or file
-			currentFolder = currentFolder.children?.find(
-				item => item.name === ffName,
-			);
+			currentFolder = currentFolder.children?.find(item => item.name === ffName);
 
 			if (!currentFolder) {
 				throw new Error("Folder or file not found with path: " + path);
@@ -52,9 +47,7 @@ export const findWithPath = (
 					) as FolderOrFile;
 
 					if (!ffFound) {
-						throw new Error(
-							"Folder or file not found with path: " + path,
-						);
+						throw new Error("Folder or file not found with path: " + path);
 					}
 				}
 			}

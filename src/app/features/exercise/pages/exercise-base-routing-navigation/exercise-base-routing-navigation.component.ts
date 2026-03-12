@@ -11,13 +11,11 @@ import {ExerciseHeaderComponent} from "@app/features/exercise/components/layout/
 	styleUrl: "./exercise-base-routing-navigation.component.scss",
 })
 export class ExerciseBaseRoutingNavigationComponent {
-	private readonly _chapterNavService: ChapterNavigationService = inject(
-		ChapterNavigationService,
-	);
+	private readonly _chapterNavService: ChapterNavigationService =
+		inject(ChapterNavigationService);
 	currentIndex = this._chapterNavService.currentIndex;
 
-	imgUrlLabyrinthe: string =
-		"assets/exercise/routing-navigation/labyrinthe.png";
+	imgUrlLabyrinthe: string = "assets/exercise/routing-navigation/labyrinthe.png";
 	imgUrlFolderStructure: string =
 		"assets/exercise/routing-navigation/labyrinthe-folder-structure.png";
 	imgUrlCompleteStructure: string =

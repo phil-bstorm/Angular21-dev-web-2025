@@ -6,9 +6,10 @@
 		</div>
 		<div class="card-body">
 			<p>
-				<strong>HttpClient</strong> est un service intégré d'Angular utilisé pour effectuer des requêtes HTTP vers un serveur, comme
-				des requêtes <strong>GET, POST, PUT, DELETE, etc</strong>. Il est basé sur les Observables, ce qui permet de gérer de
-				manière asynchrone les réponses du serveur.
+				<strong>HttpClient</strong> est un service intégré d'Angular utilisé pour effectuer
+				des requêtes HTTP vers un serveur, comme des requêtes
+				<strong>GET, POST, PUT, DELETE, etc</strong>. Il est basé sur les Observables, ce
+				qui permet de gérer de manière asynchrone les réponses du serveur.
 			</p>
 			<hr />
 			<p>Les principales fonctionnalités de <code>HttpClient</code> incluent :</p>
@@ -30,12 +31,14 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Avant de pouvoir utiliser l'<code>HTTPClient</code>, il faut d'abord le configuré dans le fichier
+				Avant de pouvoir utiliser l'<code>HTTPClient</code>, il faut d'abord le configuré
+				dans le fichier
 				<code>src/app/app.config.ts</code>.
 			</p>
 			<p class="color-red">
-				Attention, il a déja mit en place dans ce projet mais n'oublié pas de le mettre en place dans votre prochain projet! C'est
-				en générale une des premières choses que l'on fait lorsque l'on commence un projet.
+				Attention, il a déja mit en place dans ce projet mais n'oublié pas de le mettre en
+				place dans votre prochain projet! C'est en générale une des premières choses que
+				l'on fait lorsque l'on commence un projet.
 			</p>
 			<p>Dans le fichier <code>src/app/app.config.ts</code>:</p>
 			<textarea highlight-js [options]="{}" [lang]="'typescript'">
@@ -56,8 +59,8 @@ export const appConfig: ApplicationConfig = {
 			</textarea
 			>
 			<i>
-				🔎 Pour le moment, la configuration par défaut nous convient mais dans les chapitres suivant, nous reviendrons sur cette
-				configuration.
+				🔎 Pour le moment, la configuration par défaut nous convient mais dans les chapitres
+				suivant, nous reviendrons sur cette configuration.
 			</i>
 		</div>
 	</article>
@@ -68,12 +71,13 @@ export const appConfig: ApplicationConfig = {
 		</div>
 		<div class="card-body">
 			<p>
-				Pour effectuer des requêtes HTTP, nous allons prendre la bonne habitude de passer par un service. Cela nous permettra de
-				garder notre code propre et de ne pas mélanger la logique d'affichage avec les appels HTTP.
+				Pour effectuer des requêtes HTTP, nous allons prendre la bonne habitude de passer
+				par un service. Cela nous permettra de garder notre code propre et de ne pas
+				mélanger la logique d'affichage avec les appels HTTP.
 			</p>
 			<p>
-				En résumer, un composant appelle le service qui fait la requête HTTP et le composant attend la réponse de la requête (via un
-				observable).
+				En résumer, un composant appelle le service qui fait la requête HTTP et le composant
+				attend la réponse de la requête (via un observable).
 			</p>
 		</div>
 
@@ -102,18 +106,22 @@ export class PokemonApiV1Service {
 			</textarea
 			>
 			<ul>
-				<li>Nous avons injecté le service <code>HttpClient</code> dans notre service <code>PokemonApiServiceV1Service</code>.</li>
 				<li>
-					Nous avons créé une méthode <code>getPokeId</code> qui prend un identifiant de Pokemon en paramètre et effectue une
-					requête GET vers pokeapi.co.
+					Nous avons injecté le service <code>HttpClient</code> dans notre service
+					<code>PokemonApiServiceV1Service</code>.
 				</li>
 				<li>
-					Nous avons utilisé la méthode <code>get</code> de <code>HttpClient</code> pour effectuer la requête. Nous avons
-					également spécifié le type de réponse attendu en utilisant le modèle <code>PokemonModel</code> entre <code><></code>.
+					Nous avons créé une méthode <code>getPokeId</code> qui prend un identifiant de
+					Pokemon en paramètre et effectue une requête GET vers pokeapi.co.
 				</li>
 				<li>
-					La méthode <code>get</code> retourne un observable que nous pouvons souscrire dans notre composant pour obtenir la
-					réponse.
+					Nous avons utilisé la méthode <code>get</code> de <code>HttpClient</code> pour
+					effectuer la requête. Nous avons également spécifié le type de réponse attendu
+					en utilisant le modèle <code>PokemonModel</code> entre <code><></code>.
+				</li>
+				<li>
+					La méthode <code>get</code> retourne un observable que nous pouvons souscrire
+					dans notre composant pour obtenir la réponse.
 				</li>
 			</ul>
 
@@ -155,15 +163,21 @@ export class DemoHttpClientComponent implements OnInit {
 			>
 			<ul>
 				<li>
-					Nous avons injecté le service <code>PokemonApiServiceV1Service</code> dans notre composant
-					<code>DemoHttpClientComponent</code>.
+					Nous avons injecté le service <code>PokemonApiServiceV1Service</code> dans notre
+					composant <code>DemoHttpClientComponent</code>.
 				</li>
 				<li>
-					Dans la méthode <code>ngOnInit</code>, nous avons souscrit à l'observable retourné par la méthode
-					<code>getPokeId</code>.
+					Dans la méthode <code>ngOnInit</code>, nous avons souscrit à l'observable
+					retourné par la méthode <code>getPokeId</code>.
 				</li>
-				<li>Nous avons géré la réponse de la requête en utilisant les méthodes <code>next</code> et <code>error</code>.</li>
-				<li>En cas de succès, nous avons stocké la réponse dans une variable <code>pokemon</code> pour l'afficher dans l'HTML.</li>
+				<li>
+					Nous avons géré la réponse de la requête en utilisant les méthodes
+					<code>next</code> et <code>error</code>.
+				</li>
+				<li>
+					En cas de succès, nous avons stocké la réponse dans une variable
+					<code>pokemon</code> pour l'afficher dans l'HTML.
+				</li>
 			</ul>
 		</div>
 

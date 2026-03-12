@@ -8,8 +8,6 @@ import {SpoilComponent} from "@shared/components/spoil/spoil.component";
 	styleUrl: "./input-output-exercise2.component.scss",
 })
 export class InputOutputExercise2Component {
-	imgUrlResultat: string =
-		"assets/exercise/input-output/todo-list-resultat.png";
-	imgUrlStructure: string =
-		"assets/exercise/input-output/todo-list-structure.png";
+	imgUrlResultat: string = "assets/exercise/input-output/todo-list-resultat.png";
+	imgUrlStructure: string = "assets/exercise/input-output/todo-list-structure.png";
 }

@@ -6,10 +6,12 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Les <code>Observable</code> sont des objets qui permettent de gérer des flux de données asynchrones. Ils sont au cœur de la
-				programmation réactive et sont utilisés pour gérer des événements, des requêtes HTTP, des timers, etc.
+				Les <code>Observable</code> sont des objets qui permettent de gérer des flux de
+				données asynchrones. Ils sont au cœur de la programmation réactive et sont utilisés
+				pour gérer des événements, des requêtes HTTP, des timers, etc.
 				<br />
-				Un <code>Observable</code> peut émettre plusieurs valeurs au fil du temps, contrairement à une <code>Promise</code>
+				Un <code>Observable</code> peut émettre plusieurs valeurs au fil du temps,
+				contrairement à une <code>Promise</code>
 				qui ne peut en émettre qu'une seule.
 			</p>
 		</div>
@@ -21,15 +23,24 @@
 		</div>
 		<div class="card-body">
 			<p>
-				Les <code>Observables</code> suivent le pattern Observer. Dans ce pattern, un Observable (la source) émet des notifications,
-				et un ou plusieurs Observers (les observateurs) "souscrivent" pour écouter et réagir à ces notifications.
+				Les <code>Observables</code> suivent le pattern Observer. Dans ce pattern, un
+				Observable (la source) émet des notifications, et un ou plusieurs Observers (les
+				observateurs) "souscrivent" pour écouter et réagir à ces notifications.
 			</p>
 			<hr />
 			<p>Concepts clés:</p>
 			<ul>
-				<li><strong>Observable</strong>: La source des données, qui émet des notifications.</li>
-				<li><strong>Observer</strong>: L'entité qui écoute et réagit aux données émises par l'Observable.</li>
-				<li><strong>Subscription</strong>: L'acte de s'abonner à un Observable pour recevoir ses notifications.</li>
+				<li>
+					<strong>Observable</strong>: La source des données, qui émet des notifications.
+				</li>
+				<li>
+					<strong>Observer</strong>: L'entité qui écoute et réagit aux données émises par
+					l'Observable.
+				</li>
+				<li>
+					<strong>Subscription</strong>: L'acte de s'abonner à un Observable pour recevoir
+					ses notifications.
+				</li>
 			</ul>
 			<hr />
 		</div>
@@ -66,8 +77,8 @@ export class ClockService {
 				<li><code>new Observable()</code>: Crée un nouvel Observable.</li>
 				<li><code>observer.next()</code>: Émet une nouvelle valeur.</li>
 				<li>
-					<code>return () => clearInterval(intervalId)</code>: Fonction de nettoyage pour arrêter l'intervalle lorsque
-					l'Observable est désabonné.
+					<code>return () => clearInterval(intervalId)</code>: Fonction de nettoyage pour
+					arrêter l'intervalle lorsque l'Observable est désabonné.
 				</li>
 			</ul>
 		</div>
@@ -119,14 +130,25 @@ export class DemoObservableComponent implements OnInit, OnDestroy {
 			<h2>Le rôle de l'Observer</h2>
 		</div>
 		<div class="card-body">
-			<p class="color-red">Lorsqu'un Observable est créé, il ne commence à émettre des valeurs que lorsqu'un Observer s'y abonne.</p>
+			<p class="color-red">
+				Lorsqu'un Observable est créé, il ne commence à émettre des valeurs que lorsqu'un
+				Observer s'y abonne.
+			</p>
 			<hr />
 
 			<p>L'Observer a trois méthodes principales :</p>
 			<ul>
-				<li><code>next(value)</code>: Exécute/Réagit aux nouvelles valeurs émises par l'Observable.</li>
-				<li><code>error(err)</code> : Exécute/Réagit aux erreurs éventuelles rencontrées.</li>
-				<li><code>complete()</code>: Exécute/Réagit lorsque l'Observable a terminé d'émettre des valeurs.</li>
+				<li>
+					<code>next(value)</code>: Exécute/Réagit aux nouvelles valeurs émises par
+					l'Observable.
+				</li>
+				<li>
+					<code>error(err)</code> : Exécute/Réagit aux erreurs éventuelles rencontrées.
+				</li>
+				<li>
+					<code>complete()</code>: Exécute/Réagit lorsque l'Observable a terminé d'émettre
+					des valeurs.
+				</li>
 			</ul>
 		</div>
 	</article>
@@ -137,15 +159,22 @@ export class DemoObservableComponent implements OnInit, OnDestroy {
 		</div>
 		<div class="card-body">
 			<p>
-				Les <strong>opérateurs</strong> sont des fonctions qui permettent de transformer, filtrer, ou combiner les données d'un
-				Observable. Ils sont un aspect essentiel de la manipulation des flux de données en RxJS.
+				Les <strong>opérateurs</strong> sont des fonctions qui permettent de transformer,
+				filtrer, ou combiner les données d'un Observable. Ils sont un aspect essentiel de la
+				manipulation des flux de données en RxJS.
 			</p>
 			<p>Quelques opérateurs courants :</p>
 			<ul>
 				<li><code>map()</code> : Transforme chaque valeur émise par l'Observable.</li>
-				<li><code>filter()</code> : Ne laisse passer que les valeurs qui répondent à une condition.</li>
+				<li>
+					<code>filter()</code> : Ne laisse passer que les valeurs qui répondent à une
+					condition.
+				</li>
 				<li><code>take()</code> : Limite le nombre de valeurs émises.</li>
-				<li><code>tap()</code> : Permet d'exécuter une fonction sur chaque valeur émise sans la modifier.</li>
+				<li>
+					<code>tap()</code> : Permet d'exécuter une fonction sur chaque valeur émise sans
+					la modifier.
+				</li>
 				<li><code>catchError()</code>: Gère les erreurs émises par l'Observable.</li>
 			</ul>
 		</div>
@@ -171,27 +200,31 @@ observable.pipe(
 		</div>
 		<div class="card-body">
 			<p>
-				Les <strong>Promises</strong> et les <strong>Observables</strong> sont tous deux utilisés pour gérer des opérations
-				asynchrones, mais ils ont des différences clés :
+				Les <strong>Promises</strong> et les <strong>Observables</strong> sont tous deux
+				utilisés pour gérer des opérations asynchrones, mais ils ont des différences clés :
 			</p>
 			<ul>
 				<li><strong>Promise</strong> : Renvoie une seule valeur ou une erreur.</li>
-				<li><strong>Observable</strong> : Peut émettre plusieurs valeurs (ou aucune) sur une période donnée.</li>
 				<li>
-					Un Observable est <strong>paresseux</strong> (lazy), il ne démarre que lorsqu'un Observer s'y abonne, tandis qu'une
-					Promise démarre immédiatement.
+					<strong>Observable</strong> : Peut émettre plusieurs valeurs (ou aucune) sur une
+					période donnée.
+				</li>
+				<li>
+					Un Observable est <strong>paresseux</strong> (lazy), il ne démarre que lorsqu'un
+					Observer s'y abonne, tandis qu'une Promise démarre immédiatement.
 				</li>
 			</ul>
 			<hr />
 			<p>Quand utiliser un Observable ou une Promise ?</p>
 			<ul>
 				<li>
-					Utilisez une <strong>Promise</strong> pour des opérations asynchrones simples qui n'ont qu'une seule réponse (comme une
-					requête HTTP unique).
+					Utilisez une <strong>Promise</strong> pour des opérations asynchrones simples
+					qui n'ont qu'une seule réponse (comme une requête HTTP unique).
 				</li>
 				<li>
-					Utilisez un <strong>Observable</strong> pour des flux de données continus ou lorsque plusieurs valeurs doivent être
-					émises (comme des événements utilisateur ou des WebSockets).
+					Utilisez un <strong>Observable</strong> pour des flux de données continus ou
+					lorsque plusieurs valeurs doivent être émises (comme des événements utilisateur
+					ou des WebSockets).
 				</li>
 			</ul>
 		</div>
@@ -204,12 +237,13 @@ observable.pipe(
 		</div>
 		<div class="card-body">
 			<p>
-				Un <code>Subject</code> est un type spécial d'Observable qui permet à plusieurs Observers de s'abonner et de recevoir les
-				mêmes notifications. Il agit à la fois comme un Observable et un Observer.
+				Un <code>Subject</code> est un type spécial d'Observable qui permet à plusieurs
+				Observers de s'abonner et de recevoir les mêmes notifications. Il agit à la fois
+				comme un Observable et un Observer.
 			</p>
 			<p>
-				Un <code>BehaviorSubject</code> est un type de Subject qui nécessite une valeur initiale et émet la valeur actuelle à tous
-				les nouveaux abonnés.
+				Un <code>BehaviorSubject</code> est un type de Subject qui nécessite une valeur
+				initiale et émet la valeur actuelle à tous les nouveaux abonnés.
 			</p>
 
 			<p>Exemple d'utilisation :</p>

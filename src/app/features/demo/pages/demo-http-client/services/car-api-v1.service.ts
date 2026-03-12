@@ -9,9 +9,6 @@ export class CarApiV1Service {
 	private readonly _httpClient = inject(HttpClient);
 
 	create(car: CarV1Model) {
-		return this._httpClient.post<CarV1Model>(
-			"http://localhost:3000/cars",
-			car,
-		);
+		return this._httpClient.post<CarV1Model>("http://localhost:3000/cars", car);
 	}
 }

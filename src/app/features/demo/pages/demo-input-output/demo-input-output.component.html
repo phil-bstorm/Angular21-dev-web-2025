@@ -15,18 +15,27 @@
 			<hr />
 
 			<strong>Appel de l'enfant avec le paramètre optionnel avec le text HARD CODER</strong>
-			<enfant-input valeurRequiseTransmiseParLeParent="ValeurObligatoire" valeurOptionnelTransmiseParLeParent="ValeurOptionnelle" />
+			<enfant-input
+				valeurRequiseTransmiseParLeParent="ValeurObligatoire"
+				valeurOptionnelTransmiseParLeParent="ValeurOptionnelle"
+			/>
 			<hr />
 
 			<strong>Appel de l'enfant avec le paramètre optionnel en utilisant une variable</strong>
-			<enfant-input [valeurRequiseTransmiseParLeParent]="maVariable" [valeurOptionnelTransmiseParLeParent]="maVariable" />
+			<enfant-input
+				[valeurRequiseTransmiseParLeParent]="maVariable"
+				[valeurOptionnelTransmiseParLeParent]="maVariable"
+			/>
 		</div>
 	</article>
 
 	<article class="card">
 		<div class="card-header">
 			<h2>Output</h2>
-			<i>Fichier: <code>src/app/features/demo/pages/demo-input-output/enfant-output/</code></i>
+			<i
+				>Fichier:
+				<code>src/app/features/demo/pages/demo-input-output/enfant-output/</code></i
+			>
 		</div>
 		<div class="card-body">
 			<enfant-output (envoyerMessage)="notify($event)" />

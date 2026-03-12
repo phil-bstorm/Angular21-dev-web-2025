@@ -6,9 +6,10 @@
 		</div>
 		<div class="card-body">
 			<p>
-				En Angular, la communication entre composants est essentielle et se fait principalement grâce aux propriétés
-				<code>input()</code> et <code>output()</code> qui permettent de passer des données du parent vers l'enfant (Input) et de
-				l'enfant vers le parent (Output).
+				En Angular, la communication entre composants est essentielle et se fait
+				principalement grâce aux propriétés
+				<code>input()</code> et <code>output()</code> qui permettent de passer des données
+				du parent vers l'enfant (Input) et de l'enfant vers le parent (Output).
 			</p>
 			<p>Anciennement, <code>&#64;Input</code> et <code>&#64;Output</code>.</p>
 		</div>
@@ -20,12 +21,13 @@
 		</div>
 		<div class="card-body">
 			<p>
-				<code>input()</code> permet de recevoir des données d'un composant parent. Il est utilisé pour définir une propriété dans le
-				composant enfant qui peut être liée à une valeur dans le composant parent.
+				<code>input()</code> permet de recevoir des données d'un composant parent. Il est
+				utilisé pour définir une propriété dans le composant enfant qui peut être liée à une
+				valeur dans le composant parent.
 			</p>
 			<p>
-				Cette liaison se fait généralement via la syntaxe de liaison de propriété, en utilisant des crochets autour du nom de la
-				propriété.
+				Cette liaison se fait généralement via la syntaxe de liaison de propriété, en
+				utilisant des crochets autour du nom de la propriété.
 			</p>
 			<p>Exemple :</p>
 
@@ -55,8 +57,9 @@ export class EnfantInputComponent {
 			</textarea
 			>
 			<i
-				>🔎 Lorsqu'on utilise input, celui nous donne un Signal (que l'on verra en détail plus tard) et pour afficher la valeur d'un
-				signal, il faut rajouter des parenthèses lorsque l'on utilise la variable: <br />
+				>🔎 Lorsqu'on utilise input, celui nous donne un Signal (que l'on verra en détail
+				plus tard) et pour afficher la valeur d'un signal, il faut rajouter des parenthèses
+				lorsque l'on utilise la variable: <br />
 				<code>valeurOptionnelTransmiseParLeParent()</code></i
 			>
 
@@ -75,7 +78,8 @@ export class EnfantInputComponent {
 		</div>
 		<div class="card-body">
 			<p>
-				<code>ouput()</code> permet à un composant enfant d'émettre des événements vers son composant parent.
+				<code>ouput()</code> permet à un composant enfant d'émettre des événements vers son
+				composant parent.
 				<br />
 				Cela se fait via un EventEmitter.
 			</p>
@@ -121,14 +125,16 @@ export class DemoInputOutputComponent {
 			>
 
 			<h3>HTML du parent</h3>
-			<p>Liaison entre la méthode <code>notify</code> du parent et <code>OutputEmitter</code></p>
+			<p>
+				Liaison entre la méthode <code>notify</code> du parent et <code>OutputEmitter</code>
+			</p>
 			<textarea highlight-js [options]="{}" [lang]="'html'">
 				<enfant-output (envoyerMessage)="notify($event)" />
 			</textarea
 			>
 			<p>
-				Lorsque l'on veut récupérer la valeur de l'output, on doit utiliser <code>$event</code> lors de l'appel de la fonction dans
-				l'HTML du parent.
+				Lorsque l'on veut récupérer la valeur de l'output, on doit utiliser
+				<code>$event</code> lors de l'appel de la fonction dans l'HTML du parent.
 			</p>
 		</div>
 	</article>

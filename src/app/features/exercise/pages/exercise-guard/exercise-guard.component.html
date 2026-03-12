@@ -6,16 +6,23 @@
 			<h2>Mot de passe?</h2>
 		</div>
 		<div class="card-body">
-			<img id="imgRepresentation" [src]="imgUrlRepresentation" alt="Image de la représentation" />
+			<img
+				id="imgRepresentation"
+				[src]="imgUrlRepresentation"
+				alt="Image de la représentation"
+			/>
 			<p>
-				Crée un formulaire avec un seul champ (mot de passe). Si le mot de passe donner par le formulaire correspond à celui dans le
-				guard, vous pourrez accéder à la page sinon vous serez rediriger vers l'autre page.
+				Crée un formulaire avec un seul champ (mot de passe). Si le mot de passe donner par
+				le formulaire correspond à celui dans le guard, vous pourrez accéder à la page sinon
+				vous serez rediriger vers l'autre page.
 			</p>
 
 			<p>
 				Le composant de accueillant le formulaire est déja créer,
-				<abbr title="src/app/features/exercise/pages/exercise-guard/pages/entree/">ici</abbr> et est déjà appeler plus bas dans ce
-				code.
+				<abbr title="src/app/features/exercise/pages/exercise-guard/pages/entree/"
+					>ici</abbr
+				>
+				et est déjà appeler plus bas dans ce code.
 			</p>
 
 			<p>
@@ -30,13 +37,20 @@
 					<spoil
 						><p>
 							N'oublie pas de faire le routing dans le fichier
-							<code>src/app/features/exercise/pages/exercise-guard/exercise-guard.routes.ts</code>
+							<code
+								>src/app/features/exercise/pages/exercise-guard/exercise-guard.routes.ts</code
+							>
 						</p></spoil
 					>
 				</li>
 				<li>
 					Indice 2:
-					<spoil><p>Passe par un service pour stocker les informations du formulaire et les récupéres dans le guard</p></spoil>
+					<spoil
+						><p>
+							Passe par un service pour stocker les informations du formulaire et les
+							récupéres dans le guard
+						</p></spoil
+					>
 				</li>
 
 				<li>

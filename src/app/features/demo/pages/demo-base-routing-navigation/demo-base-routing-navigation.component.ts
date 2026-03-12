@@ -10,12 +10,9 @@ import {DemoHeaderComponent} from "@app/features/demo/components/layout/demo-hea
 	styleUrl: "./demo-base-routing-navigation.component.scss",
 })
 export class DemoBaseRoutingNavigationComponent {
-	private readonly _chapterNavService: ChapterNavigationService = inject(
-		ChapterNavigationService,
-	);
+	private readonly _chapterNavService: ChapterNavigationService =
+		inject(ChapterNavigationService);
 	theoryIndex = this._chapterNavService.currentIndex;
-	imgUrlBookIndexStructure: string =
-		"assets/demo/routing-navigation/book-index-structure.png";
-	imgUrlBookRoutesStructure: string =
-		"assets/demo/routing-navigation/book-routes-structure.png";
+	imgUrlBookIndexStructure: string = "assets/demo/routing-navigation/book-index-structure.png";
+	imgUrlBookRoutesStructure: string = "assets/demo/routing-navigation/book-routes-structure.png";
 }

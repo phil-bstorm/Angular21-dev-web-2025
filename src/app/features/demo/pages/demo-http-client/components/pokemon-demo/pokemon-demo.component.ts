@@ -22,10 +22,7 @@ export class PokemonDemoComponent implements OnInit {
 				this.pokemon = response;
 			},
 			error: error => {
-				console.error(
-					"Erreur lors de la récupération des données :",
-					error,
-				);
+				console.error("Erreur lors de la récupération des données :", error);
 				this.pokemonError = error.message;
 			},
 		});

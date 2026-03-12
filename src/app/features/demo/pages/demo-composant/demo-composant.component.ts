@@ -10,6 +10,5 @@ import {DemoHeaderComponent} from "@app/features/demo/components/layout/demo-hea
 	styleUrl: "./demo-composant.component.scss",
 })
 export class DemoComposantComponent {
-	imgUrlPremierComposant: string =
-		"assets/demo/composant/premier-composant.png";
+	imgUrlPremierComposant: string = "assets/demo/composant/premier-composant.png";
 }

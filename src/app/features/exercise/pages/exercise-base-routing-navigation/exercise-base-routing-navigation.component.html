@@ -1,14 +1,18 @@
 <exercise-header chapterName="Navigation" />
 
 <section class="card-body">
-	<p>Utilise tout ce que tu as appris dans le chapitre du routing et de la navigation pour créer un mini labyrinthe!</p>
+	<p>
+		Utilise tout ce que tu as appris dans le chapitre du routing et de la navigation pour créer
+		un mini labyrinthe!
+	</p>
 	<article class="card">
 		<div class="card-header">
 			<h2>Objectif</h2>
 		</div>
 		<div class="card-body">
 			<p>
-				Pratiquer la création de module, la création de composant, la mise en place du routing et l'utilisation du
+				Pratiquer la création de module, la création de composant, la mise en place du
+				routing et l'utilisation du
 				<code>routerLink</code>.
 			</p>
 		</div>
@@ -22,7 +26,9 @@
 			<p style="color: red">
 				<strong
 					>⚠️ ATTENTION A BIEN TRAVAILLER DANS LE DOSSIER:
-					<code>src/app/features/exercise/pages/exercise-base-routing-navigation/</code></strong
+					<code
+						>src/app/features/exercise/pages/exercise-base-routing-navigation/</code
+					></strong
 				>
 			</p>
 			<p>Créer un mini labyrinthe avec 4 étages:</p>
@@ -34,10 +40,12 @@
 			</ul>
 			<p>
 				L'idée est que l'utilisateur commence le jeu à l'URL
-				<a routerLink="/exercise/{{ currentIndex() }}/labyrinthe">http://localhost:4200/exercise/{{ currentIndex() }}/labyrinthe</a>
+				<a routerLink="/exercise/{{ currentIndex() }}/labyrinthe"
+					>http://localhost:4200/exercise/{{ currentIndex() }}/labyrinthe</a
+				>
 				et vois un petit text de bienvenue.<br />
-				Ensuite, il doit cliquer sur un bouton pour passer à l'étage 1. À chaque étage, il doit cliquer sur un lien pour passer à
-				l'étage suivant.<br />
+				Ensuite, il doit cliquer sur un bouton pour passer à l'étage 1. À chaque étage, il
+				doit cliquer sur un lien pour passer à l'étage suivant.<br />
 				Illustration:
 				<img [src]="imgUrlLabyrinthe" alt="Labyrinthe" class="img-fluid" />
 			</p>

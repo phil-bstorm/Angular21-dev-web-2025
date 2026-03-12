@@ -6,17 +6,11 @@ import {ExerciseHeaderComponent} from "@app/features/exercise/components/layout/
 
 @Component({
 	selector: "exercise-composant",
-	imports: [
-		SpoilComponent,
-		AnimalerieComponent,
-		HighlightJsDirective,
-		ExerciseHeaderComponent,
-	],
+	imports: [SpoilComponent, AnimalerieComponent, HighlightJsDirective, ExerciseHeaderComponent],
 	templateUrl: "./exercise-composant.component.html",
 	styleUrl: "./exercise-composant.component.scss",
 })
 export class ExerciseComposantComponent {
 	imgUrlAnimalerie = "assets/exercise/composant/animalerie.png";
-	imgUrlAnimalerieStructure =
-		"assets/exercise/composant/animalerie-structure.png";
+	imgUrlAnimalerieStructure = "assets/exercise/composant/animalerie-structure.png";
 }

@@ -9,8 +9,6 @@ export class PokemonApiV1Service {
 	private readonly _httpClient = inject(HttpClient);
 
 	getPokeId(id: number) {
-		return this._httpClient.get<PokemonModel>(
-			"https://pokeapi.co/api/v2/pokemon/" + id,
-		);
+		return this._httpClient.get<PokemonModel>("https://pokeapi.co/api/v2/pokemon/" + id);
 	}
 }

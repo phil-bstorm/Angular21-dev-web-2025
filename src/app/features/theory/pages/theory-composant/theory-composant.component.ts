@@ -9,6 +9,5 @@ import {TheoryHeaderComponent} from "@app/features/theory/components/layout/theo
 	styleUrl: "./theory-composant.component.scss",
 })
 export class TheoryComposantComponent {
-	imageUrlAppComponentFiles =
-		"assets/theory/composant/app-component-files.png";
+	imageUrlAppComponentFiles = "assets/theory/composant/app-component-files.png";
 }

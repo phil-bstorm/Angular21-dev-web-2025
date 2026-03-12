@@ -12,12 +12,20 @@
 		</li>
 		<li>
 			Réagir au survol d'un bouton (<code>(mouseover)="handleMouseOver()"</code>) :<br />
-			<button class="btn m-1 btn-{{ btnOverState }}" (mouseover)="handleMouseOver()">Je change de couleur une fois!</button>
+			<button class="btn m-1 btn-{{ btnOverState }}" (mouseover)="handleMouseOver()">
+				Je change de couleur une fois!
+			</button>
 		</li>
 
 		<li>
-			Réagir au survol d'un bouton (<code>(mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()"</code>) :<br />
-			<button class="btn m-1 btn-{{ btnEnterLeaveState }}" (mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()">
+			Réagir au survol d'un bouton (<code
+				>(mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()"</code
+			>) :<br />
+			<button
+				class="btn m-1 btn-{{ btnEnterLeaveState }}"
+				(mouseenter)="handleMouseEnter()"
+				(mouseleave)="handleMouseLeave()"
+			>
 				Je change de couleur quand on me survole fois!
 			</button>
 		</li>

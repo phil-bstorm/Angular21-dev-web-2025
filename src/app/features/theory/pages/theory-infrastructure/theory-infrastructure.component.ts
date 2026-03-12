@@ -53,16 +53,13 @@ export class TheoryInfrastructureComponent {
 				children: [
 					{
 						name: "core",
-						interaction: () =>
-							this.onElementOfFolderClick("src/app/core"),
+						interaction: () => this.onElementOfFolderClick("src/app/core"),
 						files: [],
 						children: [
 							{
 								name: "models",
 								interaction: () =>
-									this.onElementOfFolderClick(
-										"src/app/core/models",
-									),
+									this.onElementOfFolderClick("src/app/core/models"),
 								files: [
 									{
 										name: "user.model.ts",
@@ -79,9 +76,7 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "constants",
 								interaction: () =>
-									this.onElementOfFolderClick(
-										"src/app/core/constants",
-									),
+									this.onElementOfFolderClick("src/app/core/constants"),
 								files: [
 									{
 										name: "api.constants.ts",
@@ -95,9 +90,7 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "interceptors",
 								interaction: () =>
-									this.onElementOfFolderClick(
-										"src/app/core/interceptors",
-									),
+									this.onElementOfFolderClick("src/app/core/interceptors"),
 								files: [
 									{
 										name: "jwt.interceptor.ts",
@@ -111,9 +104,7 @@ export class TheoryInfrastructureComponent {
 							{
 								name: "guards",
 								interaction: () =>
-									this.onElementOfFolderClick(
-										"src/app/core/guards",
-									),
+									this.onElementOfFolderClick("src/app/core/guards"),
 								files: [
 									{
 										name: "connected.guard.ts",
@@ -186,13 +177,11 @@ export class TheoryInfrastructureComponent {
 													},
 													{
 														name: "auth-login.component.html",
-														bootstrapIcon:
-															"bi-filetype-html",
+														bootstrapIcon: "bi-filetype-html",
 													},
 													{
 														name: "auth-login.component.scss",
-														bootstrapIcon:
-															"bi-filetype-scss",
+														bootstrapIcon: "bi-filetype-scss",
 													},
 												],
 											},
@@ -204,13 +193,11 @@ export class TheoryInfrastructureComponent {
 													},
 													{
 														name: "auth-register.component.html",
-														bootstrapIcon:
-															"bi-filetype-html",
+														bootstrapIcon: "bi-filetype-html",
 													},
 													{
 														name: "auth-register.component.scss",
-														bootstrapIcon:
-															"bi-filetype-scss",
+														bootstrapIcon: "bi-filetype-scss",
 													},
 												],
 											},

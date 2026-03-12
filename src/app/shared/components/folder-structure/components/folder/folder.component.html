@@ -14,7 +14,8 @@
 			(click)="onElementClick(folder())"
 		>
 			<i class="m-1 {{ folder().bootstrapIcon || 'bi-folder' }}"></i>
-			&nbsp;{{ folder().name }} <span [ngClass]="{'bi-info-circle': folder().interaction}"></span>
+			&nbsp;{{ folder().name }}
+			<span [ngClass]="{'bi-info-circle': folder().interaction}"></span>
 		</span>
 		@if (isOpen) {
 			<ul class="list-unstyled ms-3">
@@ -28,7 +29,8 @@
 							}"
 						>
 							<i class="ms-2 {{ file.bootstrapIcon || 'bi-file-code' }}"></i>
-							&nbsp;{{ file.name }} <span [ngClass]="{'bi-info-circle': file.interaction}"></span>
+							&nbsp;{{ file.name }}
+							<span [ngClass]="{'bi-info-circle': file.interaction}"></span>
 						</span>
 					</li>
 				}

@@ -137,9 +137,7 @@ export class Courses {
 	};
 
 	doesChapterIdHas = (chapterId: number, tdes: ChapterTDE[]) => {
-		return tdes.every(tde =>
-			this.chapterOrder[chapterId].has.includes(tde),
-		);
+		return tdes.every(tde => this.chapterOrder[chapterId].has.includes(tde));
 	};
 }
 
