@@ -16,7 +16,12 @@
 			<h2>Exercie 1 - UnE LeTtRe SuR 2.</h2>
 		</div>
 		<div class="card-body">
-			<p>Créer une pipe pour transformer un texte en alternant une lettre sur deux en majuscule.</p>
+			<p>
+				{{
+					"Créer une pipe pour transformer un texte en alternant une lettre sur deux en majuscule."
+						| unelettresurdeux
+				}}
+			</p>
 		</div>
 	</article>
 	<article class="card">
@@ -34,13 +39,29 @@
 				<li>
 					Avec un paramètre qui serait renseigner:
 					<ul>
-						<li>(<code>-</code>) : <code>['a', 'b', 'c']</code> deviendra <code>a - b - c</code></li>
-						<li>(<code>+-</code>) : <code>['a', 'b', 'c']</code> deviendra <code>a +- b +- c</code></li>
-						<li>(<code>...</code>) : <code>['a', 'b', 'c']</code> deviendra <code>a ... b ... c</code></li>
+						<li>
+							(<code>-</code>) : <code>['a', 'b', 'c']</code> deviendra
+							<code>a - b - c</code>
+						</li>
+						<li>
+							(<code>+-</code>) : <code>['a', 'b', 'c']</code> deviendra
+							<code>a +- b +- c</code>
+						</li>
+						<li>
+							(<code>...</code>) : <code>['a', 'b', 'c']</code> deviendra
+							<code>a ... b ... c</code>
+						</li>
 						<li>... Bref, l'utilisateur choisit.</li>
 					</ul>
 				</li>
 			</ul>
+			<p>
+				{{ [1, 2, 3] | customSeparator }}
+				<br />
+				{{ [1, 2, 3] | customSeparator: "++" }}
+				<br />
+				{{ [1, 2, 3] | customSeparator: "*-*" }}
+			</p>
 		</div>
 	</article>
 </section>
