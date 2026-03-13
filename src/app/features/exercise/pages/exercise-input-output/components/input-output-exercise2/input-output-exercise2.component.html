@@ -37,6 +37,8 @@
 		<h2>Résultat:</h2>
 	</div>
 	<div class="card-body">
-		<!--	Place ton color picker ici!	-->
+		<!--	Place  ici!	-->
+		<todo-list-form (newTaskEvent)="onNewTask($event)" />
+		<todo-list-listing [listTaskInput]="taskList" (deleteTaskOutput)="deleteItemAt($event)" />
 	</div>
 </article>
