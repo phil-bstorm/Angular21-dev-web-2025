@@ -44,6 +44,26 @@
 		</div>
 		<div class="card-body">
 			<!-- PLACER VOTRE CODE ICI!	-->
+			<ul>
+				@for (p of produits; track $index) {
+					<li>
+						<p>{{ p.nom }}</p>
+						<p [ngClass]="{prixBarre: p.prixPromo && p.prixPromo < p.prix}">
+							{{ p.prix }}€
+						</p>
+						@if (p.prixPromo && p.prixPromo < p.prix) {
+							<p class="prixPromo">{{ p.prixPromo }}€</p>
+						}
+
+						@if (p.qttRestante > 0) {
+							<p>{{ p.qttRestante }}</p>
+						} @else {
+							<p>C'est vide...</p>
+						}
+						<img [src]="p.photo" alt="Photo de {{ p.photo }}" />
+					</li>
+				}
+			</ul>
 		</div>
 	</article>
 </section>
