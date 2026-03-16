@@ -1,0 +1,9 @@
+<div>
+	<label for="product-name">Name:</label>
+	<input type="text" id="product-name" [(ngModel)]="name" />
+
+	<label for="product-quantity">Quantity:</label>
+	<input type="number" id="product-quantity" [(ngModel)]="quantity" />
+
+	<button (click)="onSaveProduct()">Save</button>
+</div>

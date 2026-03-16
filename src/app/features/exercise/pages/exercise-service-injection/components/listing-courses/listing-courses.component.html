@@ -1,0 +1,10 @@
+<ul>
+	@for (p of list(); track p.id) {
+		<li>
+			<span [ngClass]="{red: p.quantity >= 5}"> {{ p.name }} </span>-
+			<button (click)="onMinusBtn(p.id)">➖</button>
+			{{ p.quantity }}
+			<button (click)="onPlusBtn(p.id)">➕</button>
+		</li>
+	}
+</ul>
