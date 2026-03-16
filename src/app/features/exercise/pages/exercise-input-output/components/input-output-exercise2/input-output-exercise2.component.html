@@ -40,5 +40,10 @@
 		<!--	Place  ici!	-->
 		<todo-list-form (newTaskEvent)="onNewTask($event)" />
 		<todo-list-listing [listTaskInput]="taskList" (deleteTaskOutput)="deleteItemAt($event)" />
+
+		<hr />
+
+		<pokemon-list-form (newPokemonEvent)="onNewPokemon($event)" />
+		<pokemon-list-listing [pokemonsList]="pokemons" />
 	</div>
 </article>

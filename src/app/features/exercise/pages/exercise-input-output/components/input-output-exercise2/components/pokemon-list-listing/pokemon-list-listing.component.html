@@ -1,0 +1,6 @@
+<h3>Pokemon List</h3>
+<ul>
+	@for (pokemon of pokemonsList(); track pokemon.id) {
+		<li>{{ pokemon.name }} - {{ pokemon.type }}</li>
+	}
+</ul>
