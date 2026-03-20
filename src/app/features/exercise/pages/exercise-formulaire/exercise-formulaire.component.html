@@ -38,6 +38,60 @@
 		</div>
 		<div class="card-body">
 			<!--			-->
+			<form [formGroup]="form" (ngSubmit)="onSubmit()">
+				<div>
+					<label
+						for="email-input"
+						class="form-label"
+						[ngClass]="{'text-danger': email.invalid && email.touched}"
+						>email:</label
+					>
+					<input
+						type="email"
+						id="email-input"
+						class="form-control"
+						[ngClass]="{'text-danger': email.invalid && email.touched}"
+						formControlName="email"
+					/>
+					<app-forms-error-display [control]="email" name="email" />
+				</div>
+
+				<div>
+					<label
+						for="password-input"
+						class="form-label"
+						[ngClass]="{'text-danger': password.invalid && password.touched}"
+						>password:</label
+					>
+					<input
+						type="password"
+						id="password-input"
+						class="form-control"
+						[ngClass]="{'text-danger': password.invalid && password.touched}"
+						formControlName="password"
+					/>
+					<app-forms-error-display [control]="password" name="password" />
+				</div>
+
+				<div>
+					<label
+						for="birthdate-input"
+						class="form-label"
+						[ngClass]="{'text-danger': birthdate.invalid && birthdate.touched}"
+						>birthdate:</label
+					>
+					<input
+						type="date"
+						id="birthdate-input"
+						class="form-control"
+						[ngClass]="{'text-danger': birthdate.invalid && birthdate.touched}"
+						formControlName="birthdate"
+					/>
+					<app-forms-error-display [control]="birthdate" name="birthdate" />
+				</div>
+
+				<button type="submit" [disabled]="form.invalid">Submit</button>
+			</form>
 		</div>
 	</article>
 </section>
